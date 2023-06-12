@@ -1,5 +1,5 @@
 <header>
-	<div class="container">
+	<div class="container flex -space-between">
 		<a href="/" class="link">
 			<img src="/p.svg" alt="Posta logo" />
 			<h1>Posta</h1>
@@ -10,13 +10,16 @@
 		</nav>
 	</div>
 </header>
-<div class="container">
+<div class="container flex -space-between padding-top">
 	<slot />
 </div>
 
 <style>
 	header {
 		border-bottom: thin solid #e0e5e9;
+	}
+	.padding-top {
+		padding-top: 1rem;
 	}
 	h1 {
 		font-size: 1rem;

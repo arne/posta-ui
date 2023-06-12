@@ -17,10 +17,15 @@ body {
 }
 
 .container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	max-width: 62rem;
 	padding: 0 1rem;
 	margin: 0 auto;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+.flex.-space-between {
+	justify-content: space-between;
 }
