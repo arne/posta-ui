@@ -1,16 +1,29 @@
+<script lang="ts">
+	import type { PostView } from 'lemmy-js-client';
+	export let post: PostView;
+	console.log(post);
+</script>
+
 <div class="post">
 	<div class="content">
-		<h1>Any way of finding popular communities across servers?</h1>
-		<p>If it’s a text post, the intro text should be here.</p>
+		<h1>{post.post.name}</h1>
+
+		{#if post.post.thumbnail_url}
+			<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
+		{/if}
+		{#if post.post.body}
+			<p>{post.post.body}</p>
+		{/if}
 	</div>
 	<div class="meta flex -space-between">
 		<div>
-			<p>by Arne</p>
+			<p>by {post.creator.name}</p>
 			<ul class="details flex">
 				<li>
-					<img src="/up.svg" alt="Vote count" /> 120
+					<img src="/up.svg" alt="Vote count" />
+					{post.counts.score}
 				</li>
-				<li><img src="/comment.svg" alt="Downvote" /> 8</li>
+				<li><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
 				<li><img src="/time.svg" alt="Post time" /> 12h ago</li>
 			</ul>
 		</div>
@@ -27,7 +40,8 @@
 	}
 	h1 {
 		font-size: 1rem;
-		margin: 0;
+		margin: 0.25rem 0;
+		line-height: 1.5;
 		font-weight: 600;
 	}
 	.post {

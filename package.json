@@ -27,5 +27,8 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.3.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"lemmy-js-client": "^0.17.2-rc.24"
+	}
 }

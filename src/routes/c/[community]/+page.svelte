@@ -1,13 +1,13 @@
 <script>
 	import Post from '$lib/Post.svelte';
-	export let data;
 </script>
 
 <div class="grid">
 	<div class="posts">
-		{#each data.posts as post}
-			<Post {post} />
-		{/each}
+		<Post />
+		<Post />
+		<Post />
+		<Post />
 	</div>
 	<div>
 		<article class="card">
