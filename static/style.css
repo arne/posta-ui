@@ -1,3 +1,5 @@
+@import url('./reset.css');
+
 html,
 body {
 	margin: 0;
@@ -14,6 +16,7 @@ body {
 
 body {
 	font-size: 16px;
+	color: #4b5259;
 }
 
 .container {
@@ -28,4 +31,16 @@ body {
 }
 .flex.-space-between {
 	justify-content: space-between;
+}
+
+.card {
+	border: thin solid #e0e5e9;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	width: 100%;
+}
+
+p {
+	line-height: 1.5;
+	margin: 0.5rem 0 0;
 }

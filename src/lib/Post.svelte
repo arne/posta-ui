@@ -28,7 +28,7 @@
 	h1 {
 		font-size: 1rem;
 		margin: 0;
-		font-weight: 00;
+		font-weight: 600;
 	}
 	.post {
 		border: thin solid #e0e5e9;
@@ -41,12 +41,14 @@
 	}
 	.meta {
 		border-top: thin solid #e0e5e9;
-		padding: 0.5rem;
+		padding: 0.25rem 0.5rem;
+		font-size: 0.875rem;
 	}
 	.details {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		margin-top: 0.5rem;
 	}
 	.details li {
 		margin-right: 0.5rem;

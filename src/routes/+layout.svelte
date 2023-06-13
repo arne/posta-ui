@@ -1,6 +1,6 @@
 <header>
 	<div class="container flex -space-between">
-		<a href="/" class="link">
+		<a href="/" class="link flex">
 			<img src="/p.svg" alt="Posta logo" />
 			<h1>Posta</h1>
 		</a>
@@ -17,6 +17,7 @@
 <style>
 	header {
 		border-bottom: thin solid #e0e5e9;
+		padding: 1rem 0;
 	}
 	.padding-top {
 		padding-top: 1rem;
@@ -24,6 +25,7 @@
 	h1 {
 		font-size: 1rem;
 		margin-left: 0.25rem;
+		font-weight: 600;
 	}
 	.link,
 	nav {
