@@ -27,4 +27,8 @@
 	h1 {
 		font-weight: 600;
 	}
+	.card ul {
+		margin-left: 1rem;
+		list-style: bullet;
+	}
 </style>

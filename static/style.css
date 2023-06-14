@@ -49,3 +49,26 @@ a.no-show {
 	text-decoration: none;
 	color: inherit;
 }
+
+.card ul {
+	margin-left: 1.5rem;
+	list-style: disc;
+}
+.card li {
+	line-height: 1.5;
+}
+
+a {
+	color: #697b6f;
+	text-decoration: none;
+	border-bottom: thin solid #e0e5e9;
+}
+a:hover {
+	border-color: #697b6f;
+}
+
+.card hr {
+	border: none;
+	border-top: thin solid #e0e5e9;
+	margin: 1rem -0.5rem;
+}
