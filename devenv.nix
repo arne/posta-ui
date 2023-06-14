@@ -19,5 +19,5 @@
 
   processes.posta-ui.exec = "yarn run dev";
 
-  containers."processes".copyToRoot = false;
+  containers."processes".copyToRoot = null;
 }
