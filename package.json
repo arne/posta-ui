@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"lemmy-js-client": "^0.17.2-rc.24"
+		"lemmy-js-client": "^0.17.2-rc.24",
+		"svelte-markdown": "^0.2.3"
 	}
 }

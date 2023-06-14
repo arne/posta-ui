@@ -1,5 +1,6 @@
 <script>
 	import Post from '$lib/Post.svelte';
+	import SvelteMarkdown from 'svelte-markdown';
 	export let data;
 </script>
 
@@ -9,10 +10,10 @@
 	</div>
 	<div>
 		<article class="card">
-			<h1>Welcome to Posta</h1>
-			<p>
-				Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
-			</p>
+			<h1>{data.community_view.community.title}</h1>
+			{#if data.community_view.community.description}
+				<SvelteMarkdown source={data.community_view.community.description} />
+			{/if}
 		</article>
 	</div>
 </div>

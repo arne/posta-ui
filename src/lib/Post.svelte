@@ -2,6 +2,8 @@
 	import type { PostView } from 'lemmy-js-client';
 	import relativeDate from '$lib/helpers/relativeDate.js';
 	import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
+
+	import SvelteMarkdown from 'svelte-markdown';
 	export let post: PostView;
 	export let link = false;
 </script>
@@ -14,7 +16,7 @@
 				<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
 			{/if}
 			{#if post.post.body}
-				<p>{post.post.body}</p>
+				<SvelteMarkdown source={post.post.body} />
 			{/if}
 		</div>
 	</ConditionalWrapper>
