@@ -3,12 +3,7 @@
 </script>
 
 <div class="grid">
-	<div class="posts">
-		<Post />
-		<Post />
-		<Post />
-		<Post />
-	</div>
+	<div class="posts" />
 	<div>
 		<article class="card">
 			<h1>Welcome to Posta</h1>

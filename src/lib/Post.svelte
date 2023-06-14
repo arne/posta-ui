@@ -1,20 +1,23 @@
 <script lang="ts">
 	import type { PostView } from 'lemmy-js-client';
+	import relativeDate from '$lib/helpers/relativeDate.js';
+	import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
 	export let post: PostView;
-	console.log(post);
+	export let link = false;
 </script>
 
 <div class="post">
-	<div class="content">
-		<h1>{post.post.name}</h1>
-
-		{#if post.post.thumbnail_url}
-			<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
-		{/if}
-		{#if post.post.body}
-			<p>{post.post.body}</p>
-		{/if}
-	</div>
+	<ConditionalWrapper href={`/post/${post.post.id}`} class="no-show" {link}>
+		<div class="content">
+			<h1>{post.post.name}</h1>
+			{#if post.post.thumbnail_url}
+				<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
+			{/if}
+			{#if post.post.body}
+				<p>{post.post.body}</p>
+			{/if}
+		</div>
+	</ConditionalWrapper>
 	<div class="meta flex -space-between">
 		<div>
 			<p>by {post.creator.name}</p>
@@ -24,7 +27,10 @@
 					{post.counts.score}
 				</li>
 				<li><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
-				<li><img src="/time.svg" alt="Post time" /> 12h ago</li>
+				<li>
+					<img src="/time.svg" alt={post.counts.published} />
+					{relativeDate(post.counts.published)}
+				</li>
 			</ul>
 		</div>
 		<div class="vote">
@@ -67,6 +73,7 @@
 	.details li {
 		margin-right: 0.5rem;
 	}
+
 	.vote a {
 		padding: 0.5rem 0.75rem;
 		background-color: #f6f6f6;

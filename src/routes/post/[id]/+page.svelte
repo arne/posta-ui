@@ -5,9 +5,7 @@
 
 <div class="grid">
 	<div class="posts">
-		{#each data.posts as post}
-			<Post {post} link />
-		{/each}
+		<Post post={data.post_view} />
 	</div>
 	<div>
 		<article class="card">
