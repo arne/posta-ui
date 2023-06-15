@@ -12,7 +12,7 @@
 		<article class="card">
 			<h1>{data.community_view.community.title}</h1>
 			{#if data.community_view.community.description}
-				<SvelteMarkdown source={data.community_view.community.description} />
+				<div class="md"><SvelteMarkdown source={data.community_view.community.description} /></div>
 			{/if}
 		</article>
 	</div>
@@ -26,9 +26,5 @@
 	}
 	h1 {
 		font-weight: 600;
-	}
-	.card ul {
-		margin-left: 1rem;
-		list-style: bullet;
 	}
 </style>

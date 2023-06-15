@@ -1,6 +1,6 @@
 <header>
 	<div class="container flex -space-between">
-		<a href="/" class="link flex">
+		<a href="/" class="link flex no-show">
 			<img src="/p.svg" alt="Posta logo" />
 			<h1>Posta</h1>
 		</a>

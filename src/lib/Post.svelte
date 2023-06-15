@@ -16,7 +16,7 @@
 				<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
 			{/if}
 			{#if post.post.body}
-				<SvelteMarkdown source={post.post.body} />
+				<div class="md"><SvelteMarkdown source={post.post.body} /></div>
 			{/if}
 		</div>
 	</ConditionalWrapper>
@@ -36,8 +36,8 @@
 			</ul>
 		</div>
 		<div class="vote">
-			<a href="#up"><img src="/up.svg" alt="Upvote" /></a>
-			<a href="#up"><img src="/down.svg" alt="Downvote" /></a>
+			<a href="#up" class="no-show"><img src="/up.svg" alt="Upvote" /></a>
+			<a href="#down" class="no-show"><img src="/down.svg" alt="Downvote" /></a>
 		</div>
 	</div>
 </div>
@@ -69,8 +69,7 @@
 	.details {
 		list-style: none;
 		padding: 0;
-		margin: 0;
-		margin-top: 0.5rem;
+		margin: 0.5rem 0;
 	}
 	.details li {
 		margin-right: 0.5rem;

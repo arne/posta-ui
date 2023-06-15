@@ -1,4 +1,4 @@
-<form method="POST" action="?/login">
+<!-- <form method="POST" action="?/login">
 	<fieldset>
 		<legend>Login</legend>
 		<input type="text" bind:value={username} />
@@ -8,4 +8,4 @@
 		<input type="password" bind:value={password} />
 	</fieldset>
 	<button on:click={login}>Login</button>
-</form>
+</form> -->

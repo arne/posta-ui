@@ -48,14 +48,20 @@ p {
 a.no-show {
 	text-decoration: none;
 	color: inherit;
+	border: none;
 }
 
-.card ul {
+.md ul {
 	margin-left: 1.5rem;
 	list-style: disc;
 }
-.card li {
+.md li {
 	line-height: 1.5;
+}
+.md hr {
+	border: none;
+	border-top: thin solid #e0e5e9;
+	margin: 1rem -0.5rem;
 }
 
 a {
@@ -65,10 +71,4 @@ a {
 }
 a:hover {
 	border-color: #697b6f;
-}
-
-.card hr {
-	border: none;
-	border-top: thin solid #e0e5e9;
-	margin: 1rem -0.5rem;
 }

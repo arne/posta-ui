@@ -6,7 +6,7 @@ export async function load({ params }) {
 		throw error(420, 'Enhance your calm');
 	}
 	const id = parseInt(params.id);
-	const client: LemmyHttp = new LemmyHttp('http://localhost:8536');
+	const client: LemmyHttp = new LemmyHttp('https://posta.no');
 	const results = await client.getPost({ id: id });
 	return results;
 }
