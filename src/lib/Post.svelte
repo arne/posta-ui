@@ -8,10 +8,10 @@
 	export let link = false;
 </script>
 
-<div class="p-3 mb-3 border-gray-200 border rounded-md overflow-hidden">
+<div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
 	<ConditionalWrapper href={`/post/${post.post.id}`} class="no-show" {link}>
-		<div class="content">
-			<h1 class="font-semibold text-lg mb-3">{post.post.name}</h1>
+		<div class="content p-2">
+			<h1 class="font-semibold text-lg">{post.post.name}</h1>
 			{#if post.post.thumbnail_url}
 				<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
 			{/if}
@@ -21,27 +21,27 @@
 		</div>
 	</ConditionalWrapper>
 
-	<div class="flex items-center justify-between border-t border-gray-200 mt-3 pt-3 text-sm">
+	<div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
 		<div>
 			<p>by {post.creator.name}</p>
-			<ul class="flex items-center gap-4 mt-2">
-				<li class="flex gap-2">
+			<ul class="flex items-center gap-2 mt-2">
+				<li class="flex gap-1">
 					<img src="/up.svg" alt="Vote count" />
 					{post.counts.score}
 				</li>
-				<li class="flex gap-2"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
-				<li class="flex gap-2">
+				<li class="flex gap-1"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
+				<li class="flex gap-1">
 					<img src="/time.svg" alt={post.counts.published} />
 					{relativeDate(post.counts.published)}
 				</li>
 			</ul>
 		</div>
 
-		<div class="flex gap-2">
-			<a href="#up" class="bg-amber-100 block px-4 py-3 rounded-lg"
+		<div class="flex gap-1">
+			<a href="#up" class="border-gray-100 border block px-4 py-3 rounded-lg"
 				><img src="/up.svg" alt="Upvote" /></a
 			>
-			<a href="#down" class="bg-amber-100 block px-4 py-3 rounded-lg"
+			<a href="#down" class="border-gray-100 border block px-4 py-3 rounded-lg"
 				><img src="/down.svg" alt="Downvote" /></a
 			>
 		</div>

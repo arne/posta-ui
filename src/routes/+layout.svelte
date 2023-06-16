@@ -2,9 +2,9 @@
 	import '../app.css';
 </script>
 
-<header>
+<header class="border-gray-200 border-b mb-4">
 	<nav>
-		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-50 flex justify-between py-8">
+		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-50 flex justify-between py-4">
 			<div class="relative z-10 flex items-center gap-16">
 				<a href="/" class="flex gap-2">
 					<img src="/p.svg" alt="Posta logo" />

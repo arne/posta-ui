@@ -10,10 +10,12 @@
 		{/each}
 	</main>
 
-	<section class="w-80 border border-gray-200 rounded-md p-3 prose">
-		<div class="text-xl font-bold">Welcome to Posta</div>
-		<p>
-			Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
-		</p>
+	<section class="w-80">
+		<div class=" border border-gray-200 rounded-md p-3 prose">
+			<div class="text-xl font-bold">Welcome to Posta</div>
+			<p>
+				Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
+			</p>
+		</div>
 	</section>
 </div>
