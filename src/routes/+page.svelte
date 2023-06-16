@@ -1,31 +1,21 @@
 <script>
 	import Post from '$lib/Post.svelte';
+	import Card from '$lib/Card.svelte';
 	export let data;
 </script>
 
-<div class="grid">
-	<div class="posts">
+<div class="flex gap-6">
+	<main class="flex-auto w-64">
 		{#each data.posts as post}
 			<Post {post} link />
 		{/each}
-	</div>
-	<div>
-		<article class="card">
-			<h1>Welcome to Posta</h1>
+	</main>
+
+	<section class="w-80">
+		<Card title="Welcome to Posta">
 			<p>
 				Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
 			</p>
-		</article>
-	</div>
+		</Card>
+	</section>
 </div>
-
-<style>
-	.grid {
-		display: grid;
-		grid-template-columns: 640px 304px;
-		grid-gap: 16px; /* Optional: Adds a gap between the containers */
-	}
-	h1 {
-		font-weight: 600;
-	}
-</style>

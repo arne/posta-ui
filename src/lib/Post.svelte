@@ -8,76 +8,46 @@
 	export let link = false;
 </script>
 
-<div class="post">
-	<ConditionalWrapper href={`/post/${post.post.id}`} class="no-show" {link}>
-		<div class="content">
-			<h1>{post.post.name}</h1>
+<div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
+	<ConditionalWrapper href={`/p/${post.post.id}`} class="no-show" {link}>
+		<div class="content p-2">
+			<h1 class="font-semibold text-lg">{post.post.name}</h1>
 			{#if post.post.thumbnail_url}
 				<img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
 			{/if}
 			{#if post.post.body}
-				<div class="md"><SvelteMarkdown source={post.post.body} /></div>
+				<div class="prose"><SvelteMarkdown source={post.post.body} /></div>
 			{/if}
 		</div>
 	</ConditionalWrapper>
-	<div class="meta flex -space-between">
+
+	<div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
 		<div>
-			<p>by {post.creator.name}</p>
-			<ul class="details flex">
-				<li>
+			<p>
+				by <a href={`/u/${post.creator.id}`} class="underline hover:no-underline"
+					>{post.creator.name}</a
+				>
+			</p>
+			<ul class="flex items-center gap-2 mt-2">
+				<li class="flex gap-1">
 					<img src="/up.svg" alt="Vote count" />
 					{post.counts.score}
 				</li>
-				<li><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
-				<li>
+				<li class="flex gap-1"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
+				<li class="flex gap-1">
 					<img src="/time.svg" alt={post.counts.published} />
 					{relativeDate(post.counts.published)}
 				</li>
 			</ul>
 		</div>
-		<div class="vote">
-			<a href="#up" class="no-show"><img src="/up.svg" alt="Upvote" /></a>
-			<a href="#down" class="no-show"><img src="/down.svg" alt="Downvote" /></a>
+
+		<div class="flex gap-1">
+			<a href="#up" class="border-gray-100 border block px-3 py-3 rounded-lg"
+				><img src="/up.svg" alt="Upvote" /></a
+			>
+			<a href="#down" class="border-gray-100 border block px-3 py-3 rounded-lg"
+				><img src="/down.svg" alt="Downvote" /></a
+			>
 		</div>
 	</div>
 </div>
-
-<style>
-	p {
-		margin: 0.25rem 0 0;
-	}
-	h1 {
-		font-size: 1rem;
-		margin: 0.25rem 0;
-		line-height: 1.5;
-		font-weight: 600;
-	}
-	.post {
-		border: thin solid #e0e5e9;
-		border-radius: 0.25rem;
-		width: 100%;
-		margin-bottom: 1rem;
-	}
-	.content {
-		padding: 0.5rem;
-	}
-	.meta {
-		border-top: thin solid #e0e5e9;
-		padding: 0.25rem 0.5rem;
-		font-size: 0.875rem;
-	}
-	.details {
-		list-style: none;
-		padding: 0;
-		margin: 0.5rem 0;
-	}
-	.details li {
-		margin-right: 0.5rem;
-	}
-
-	.vote a {
-		padding: 0.5rem 0.75rem;
-		background-color: #f6f6f6;
-		border-radius: 0.5rem;
-	}
-</style>
