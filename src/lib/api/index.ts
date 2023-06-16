@@ -4,6 +4,9 @@ import { LemmyHttp } from '../../client/http';
 const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL);
 
 const api = {
+  login: async (user: string, password: string) =>
+    await client.login({ username_or_email: user, password: password }),
+  getSite: async (jwt: string) => await client.getSite({ auth: jwt }),
   getPostById: async (id: number) => await client.getPost({ id }),
   getPostsByCommunityName: async (community_name: string) =>
     await client.getPosts({ community_name }),

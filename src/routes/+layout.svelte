@@ -3,6 +3,8 @@
 
   import { Button } from '$lib/button';
   import DarkMode from '$lib/DarkMode.svelte';
+
+  export let site;
 </script>
 
 <header class="border-gray-200 border-b mb-4">
@@ -23,6 +25,7 @@
       <div class="flex items-center gap-3">
         <Button href="/login" variant="outline">Login</Button>
         <Button href="/register">Register</Button>
+        <p>{site}</p>
         <DarkMode />
       </div>
     </div>
