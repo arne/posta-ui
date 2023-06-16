@@ -42,10 +42,10 @@
 		</div>
 
 		<div class="flex gap-1">
-			<a href="#up" class="border-gray-100 border block px-4 py-3 rounded-lg"
+			<a href="#up" class="border-gray-100 border block px-3 py-3 rounded-lg"
 				><img src="/up.svg" alt="Upvote" /></a
 			>
-			<a href="#down" class="border-gray-100 border block px-4 py-3 rounded-lg"
+			<a href="#down" class="border-gray-100 border block px-3 py-3 rounded-lg"
 				><img src="/down.svg" alt="Downvote" /></a
 			>
 		</div>
