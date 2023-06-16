@@ -6,6 +6,7 @@ const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL);
 const api = {
   getPostById: async (id: number) => await client.getPost({ id }),
   getAnonFrontpagePosts: async () => await client.getPosts({ limit: 10 }),
+  getCommunities: async () => await client.listCommunities({ limit: 50 }),
   getPersonDetails: async (person_id: number) => await client.getPersonDetails({ person_id }),
 };
 
