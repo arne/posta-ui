@@ -1,7 +1,7 @@
 import { LemmyHttp } from 'lemmy-js-client';
 import { error } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params }: { params: { id: string } }) {
 	if (typeof params.id !== 'string') {
 		throw error(420, 'Enhance your calm');
 	}
