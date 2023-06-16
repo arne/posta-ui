@@ -10,6 +10,16 @@
 					<img src="/p.svg" alt="Posta logo" />
 					<span class="text-xl font-bold">Posta</span>
 				</a>
+
+				<div class="hidden lg:flex lg:gap-10">
+					<a
+						class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
+						href="/c"><span class="relative z-10">Communities</span></a
+					><a
+						class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
+						href="/p"><span class="relative z-10">Create post</span></a
+					>
+				</div>
 			</div>
 			<div class="flex items-center gap-6">
 				<a
