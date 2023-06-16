@@ -1,4 +1,4 @@
-import { LemmyHttp } from 'lemmy-js-client';
+import api from '$lib/api/index.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
@@ -6,8 +6,6 @@ export async function load({ params }) {
 		throw error(420, 'Enhance your calm');
 	}
 	const person_id = parseInt(params.person);
-	const client: LemmyHttp = new LemmyHttp('https://posta.no');
-	const results = await client.getPersonDetails({ person_id });
 
-	return results;
+	return await api.getPersonDetails(person_id);
 }
