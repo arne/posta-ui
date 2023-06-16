@@ -3,29 +3,17 @@
 	export let data;
 </script>
 
-<div class="grid">
-	<div class="posts">
+<div class="flex gap-6">
+	<main class="flex-auto w-64">
 		{#each data.posts as post}
 			<Post {post} link />
 		{/each}
-	</div>
-	<div>
-		<article class="card">
-			<h1>Welcome to Posta</h1>
-			<p>
-				Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
-			</p>
-		</article>
-	</div>
-</div>
+	</main>
 
-<style>
-	.grid {
-		display: grid;
-		grid-template-columns: 640px 304px;
-		grid-gap: 16px; /* Optional: Adds a gap between the containers */
-	}
-	h1 {
-		font-weight: 600;
-	}
-</style>
+	<section class="w-80 border border-gray-200 rounded-md p-3 prose">
+		<div class="text-xl font-bold">Welcome to Posta</div>
+		<p>
+			Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
+		</p>
+	</section>
+</div>

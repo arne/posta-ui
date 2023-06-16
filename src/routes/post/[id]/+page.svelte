@@ -4,27 +4,17 @@
 	export let data;
 </script>
 
-<div class="grid">
-	<div class="posts">
+<div class="flex gap-6">
+	<div class="flex-auto w-64">
 		<Post post={data.post_view} />
 	</div>
 	<div>
-		<article class="card">
-			<h1>{data.community_view.community.title}</h1>
+		<section class="w-80 border border-gray-200 rounded-md p-3 prose">
+			<h1 class="text-xl font-bold">{data.community_view.community.title}</h1>
+
 			{#if data.community_view.community.description}
-				<div class="md"><SvelteMarkdown source={data.community_view.community.description} /></div>
+				<div class=""><SvelteMarkdown source={data.community_view.community.description} /></div>
 			{/if}
-		</article>
+		</section>
 	</div>
 </div>
-
-<style>
-	.grid {
-		display: grid;
-		grid-template-columns: 640px 304px;
-		grid-gap: 16px; /* Optional: Adds a gap between the containers */
-	}
-	h1 {
-		font-weight: 600;
-	}
-</style>
