@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Satoshi', ...defaultTheme.fontFamily.sans]
+				sans: ['Inter', ...fontFamily.sans]
 			},
 			spacing: {
 				18: '4.5rem',
