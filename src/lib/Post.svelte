@@ -9,7 +9,7 @@
 </script>
 
 <div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
-	<ConditionalWrapper href={`/post/${post.post.id}`} class="no-show" {link}>
+	<ConditionalWrapper href={`/p/${post.post.id}`} class="no-show" {link}>
 		<div class="content p-2">
 			<h1 class="font-semibold text-lg">{post.post.name}</h1>
 			{#if post.post.thumbnail_url}

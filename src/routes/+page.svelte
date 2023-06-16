@@ -1,5 +1,6 @@
 <script>
 	import Post from '$lib/Post.svelte';
+	import Card from '$lib/Card.svelte';
 	export let data;
 </script>
 
@@ -11,11 +12,10 @@
 	</main>
 
 	<section class="w-80">
-		<div class=" border border-gray-200 rounded-md p-3 prose">
-			<div class="text-xl font-bold">Welcome to Posta</div>
+		<Card title="Welcome to Posta">
 			<p>
 				Posta is a client for Lemmy, trying to build a user friendly way of browsing the fediverse.
 			</p>
-		</div>
+		</Card>
 	</section>
 </div>
