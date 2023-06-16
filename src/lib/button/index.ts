@@ -15,11 +15,13 @@ export const buttonVariants = cva(
         link: 'underline-offset-4 hover:underline text-primary',
         subscribe: 'bg-[#697B6F] text-white',
         copy: 'bg-[#697B6F]/30 text-[#4b5259] border-[#4b5259] border',
+        icon: 'bg-gray-50',
       },
       size: {
         default: 'h-10 py-2 px-4',
         sm: 'h-9 px-3 rounded-md',
         lg: 'h-11 px-8 rounded-md',
+        icon: 'h-10 py-2 px-2',
       },
     },
     defaultVariants: {
