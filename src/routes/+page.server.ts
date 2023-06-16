@@ -1,7 +1,5 @@
-import { LemmyHttp } from 'lemmy-js-client';
+import api from '$lib/api';
 
-const client: LemmyHttp = new LemmyHttp('https://posta.no');
-const results = await client.getPosts({ limit: 10 });
 export async function load() {
-	return results;
+	return await api.getAnonFrontpagePosts();
 }
