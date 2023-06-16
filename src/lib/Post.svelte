@@ -23,7 +23,11 @@
 
 	<div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
 		<div>
-			<p>by {post.creator.name}</p>
+			<p>
+				by <a href={`/u/${post.creator.id}`} class="underline hover:no-underline"
+					>{post.creator.name}</a
+				>
+			</p>
 			<ul class="flex items-center gap-2 mt-2">
 				<li class="flex gap-1">
 					<img src="/up.svg" alt="Vote count" />
