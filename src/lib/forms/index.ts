@@ -1,6 +1,5 @@
 // Forms
 export { default as Checkbox } from './Checkbox.svelte';
-export { default as Fileupload } from './Fileupload.svelte';
 export { default as Helper } from './Helper.svelte';
 export { default as Input } from './Input.svelte';
 export { default as Label } from './Label.svelte';

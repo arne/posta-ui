@@ -2,7 +2,7 @@
   import { getContext } from 'svelte';
   import { cn } from '$lib/helpers/cn';
   import Checkbox from './Checkbox.svelte';
-  import type { FormColorType } from '../types';
+  import type { FormColorType } from '$lib/types';
 
   export let size: 'small' | 'default' | 'large' | 'custom' = 'default';
   export let group: (string | number)[] = [];

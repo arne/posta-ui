@@ -1,7 +1,7 @@
 <script lang="ts">
   import { cn } from '$lib/helpers/cn';
   import { getContext } from 'svelte';
-  import type { FormColorType } from '../types';
+  import type { FormColorType } from '$lib/types';
   import { labelClass, inputClass } from './Radio.svelte';
   import Label from './Label.svelte';
 

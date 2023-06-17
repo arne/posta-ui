@@ -1,7 +1,7 @@
 <script lang="ts">
   import { cn } from '$lib/helpers/cn';
   import { createEventDispatcher, setContext } from 'svelte';
-  import type { LinkType } from '../types';
+  import type { LinkType } from '$lib/types';
   import PaginationItem from './PaginationItem.svelte';
 
   export let pages: LinkType[] = [];

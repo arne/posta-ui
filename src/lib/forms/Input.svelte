@@ -9,7 +9,7 @@
   import Wrapper from '$lib/helpers/Wrapper.svelte';
   import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
-  import type { InputType } from '../types';
+  import type { InputType } from '$lib/types';
 
   export let type: InputType = 'text';
   export let value: any = undefined;

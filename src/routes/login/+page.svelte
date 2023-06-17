@@ -1,15 +1,5 @@
 <script lang="ts">
-  import {
-    Checkbox,
-    Label,
-    Input,
-    Textarea,
-    Toggle,
-    Range,
-    Select,
-    Fileupload,
-    Radio,
-  } from '$lib/forms';
+  import { Checkbox, Label, Input, Textarea, Toggle, Range, Select, Radio } from '$lib/forms';
 
   import { Button } from '$lib/button';
 
@@ -24,8 +14,6 @@
     { value: 'arne', name: 'Arne' },
     { value: 'magnus', name: 'Magnus' },
   ];
-
-  let fileValue;
 
   const login = () => {
     alert('What I am saying');
@@ -101,14 +89,6 @@
   >Select an option
   <Select class="mt-2" items={countries} bind:value={selected} />
 </Label>
-
-<hr class="my-5" />
-
-<Label class="space-y-2 mb-2">
-  <span>Upload file</span>
-  <Fileupload bind:fileValue />
-</Label>
-<Label>File: {fileValue}</Label>
 
 <hr class="my-5" />
 

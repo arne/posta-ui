@@ -1,6 +1,6 @@
 <script lang="ts">
   import { cn } from '$lib/helpers/cn';
-  import type { SelectOptionType } from '../types';
+  import type { SelectOptionType } from '$lib/types';
 
   export let items: SelectOptionType[] = [];
   export let value: any = undefined;
