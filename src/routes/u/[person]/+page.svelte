@@ -1,7 +1,7 @@
 <script>
   import Post from '$lib/Post.svelte';
   export let data;
-  console.log(data);
+  const [person, posts] = [data.person_view.person, data.posts];
 </script>
 
 <div class="flex gap-6">
@@ -13,12 +13,8 @@
 
   <section class="w-80">
     <div class="h-28 overflow-hidden">
-      {#if data.person_view.person.banner}
-        <img
-          src={data.person_view.person.banner}
-          alt="Banner"
-          class="w-full rounded-tl-md rounded-tr-md"
-        />
+      {#if person.banner}
+        <img src={person.banner} alt="Banner" class="w-full rounded-tl-md rounded-tr-md" />
       {:else}
         <div class="bg-yellow-100 h-28 w-full rounded-tl-md rounded-tr-md" />
       {/if}
@@ -27,11 +23,11 @@
       <div
         class="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-full absolute sm:-top-16 -top-8 sm:left-4 left-2"
       >
-        {#if data.person_view.person.avatar}
+        {#if person.avatar}
           <img
-            src={data.person_view.person.avatar}
+            src={person.avatar}
             class="w-20 h-20 sm:w-32 sm:h-32 rounded-full text-left p-1"
-            alt={data.person_view.person.name}
+            alt={person.name}
           />
         {:else}
           <div class="bg-red-100 w-full h-full rounded-full" />
@@ -41,16 +37,16 @@
 
     <div class="border border-gray-200 border-t-0 rounded-bl-md rounded-br-md p-2 pt-18">
       <div class="text-2xl font-bold">
-        {data.person_view.person.display_name || data.person_view.person.name}
+        {person.display_name || person.name}
       </div>
-      @{data.person_view.person.name}
+      @{person.name}
 
-      {#if data.person_view.person.bio}
-        <p>{data.person_view.person.bio}</p>
+      {#if person.bio}
+        <p>{person.bio}</p>
       {/if}
 
       <ul>
-        <li>{data.person_view.person.published}</li>
+        <li>{person.published}</li>
       </ul>
     </div>
   </section>
