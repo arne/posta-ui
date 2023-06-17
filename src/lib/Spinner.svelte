@@ -15,7 +15,7 @@
     | undefined = 'primary';
   export let bg: string = 'text-gray-300';
   export let customColor: string = '';
-  export let size: string = '8';
+  export let size: string = '6';
   // these two props add fine control over the spinner colors
   export let currentFill: string = 'currentFill';
   export let currentColor: string = 'currentColor';
