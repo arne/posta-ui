@@ -4,8 +4,10 @@
   import { Tabs, TabItem } from '$lib/tabs';
   import SvelteMarkdown from 'svelte-markdown';
   import { Globe, MessagesSquare, User, SquareStack } from 'lucide-svelte';
+
+
   export let data;
-  // console.log(data.comments[0]);
+  const [person, posts] = [data.person_view.person, data.posts];
 </script>
 
 <div class="flex gap-6">
@@ -49,27 +51,43 @@
     </Tabs>
   </main>
 
-  <section class="w-80 border border-gray-200 rounded-md p-3 prose">
-    {#if data.person_view.person.banner}
-      <img src={data.person_view.person.banner} alt="banner" class="w-20 h-10" />
-    {/if}
+  <section class="w-80">
+    <div class="h-28 overflow-hidden">
+      {#if person.banner}
+        <img src={person.banner} alt="Banner" class="w-full rounded-tl-md rounded-tr-md" />
+      {:else}
+        <div class="bg-yellow-100 h-28 w-full rounded-tl-md rounded-tr-md" />
+      {/if}
+    </div>
+    <div class="relative">
+      <div
+        class="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-full absolute sm:-top-16 -top-8 sm:left-4 left-2"
+      >
+        {#if person.avatar}
+          <img
+            src={person.avatar}
+            class="w-20 h-20 sm:w-32 sm:h-32 rounded-full text-left p-1"
+            alt={person.name}
+          />
+        {:else}
+          <div class="bg-red-100 w-full h-full rounded-full" />
+        {/if}
+      </div>
+    </div>
 
-    {#if data.person_view.person.avatar}
-      <img
-        src={data.person_view.person.avatar}
-        alt={data.person_view.person.name}
-        class="inline-block h-20 w-20 rounded-full"
-      />
-    {/if}
+    <div class="border border-gray-200 border-t-0 rounded-bl-md rounded-br-md p-2 pt-18">
+      <div class="text-2xl font-bold">
+        {person.display_name || person.name}
+      </div>
+      @{person.name}
 
-    {data.person_view.person.name}
+      {#if person.bio}
+        <div class="prose"><SvelteMarkdown source={person.bio} /></div>
+      {/if}
 
-    {#if data.person_view.person.bio}
-      <div class="prose">{data.person_view.person.bio}</div>
-    {/if}
-
-    <ul>
-      <li>{data.person_view.person.published}</li>
-    </ul>
+      <ul>
+        <li>{person.published}</li>
+      </ul>
+    </div>
   </section>
 </div>
