@@ -7,7 +7,12 @@
 </script>
 
 <div class="mb-4">
-  <div><strong>{comment.creator.name}</strong> {relativeDate(comment.counts.published)}</div>
+  <div>
+    <a href={`/u/${comment.creator.id}`} class="underline hover:no-underline"
+      >{comment.creator.name}</a
+    >
+    {relativeDate(comment.counts.published)}
+  </div>
   <SvelteMarkdown source={comment.comment.content} />
   <ul class="flex items-center gap-2 mt-2">
     <li class="flex gap-1">
