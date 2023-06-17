@@ -19,7 +19,17 @@
         <img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
       {/if}
       {#if post.post.body}
-        <div class="prose"><SvelteMarkdown source={post.post.body} /></div>
+        {#if link}
+          <div class="prose">
+            <SvelteMarkdown
+              source={post.post.body.split('\n\n')[0]}
+            />{#if post.post.body.split('\n\n').length > 1}<p>
+                <a href={`/p/${post.post.id}`}>Read more</a>
+              </p>{/if}
+          </div>
+        {:else}
+          <div class="prose"><SvelteMarkdown source={post.post.body} /></div>
+        {/if}
       {/if}
     </div>
   </ConditionalWrapper>
