@@ -7,15 +7,15 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-black text-white hover:bg-black/80',
+        default: 'bg-posta-red text-white hover:bg-posta-red/80',
         destructive: 'bg-red-400 text-red-100 hover:bg-red-400/90',
         outline: 'border border-input hover:bg-accent hover:text-accent-foreground',
         secondary: 'bg-blue-400 text-blue-100 hover:bg-blue-400/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'underline-offset-4 hover:underline text-primary',
-        subscribe: 'bg-[#697B6F] text-white',
-        copy: 'bg-[#697B6F]/30 text-[#4b5259] border-[#4b5259] border',
-        icon: 'bg-gray-50',
+        subscribe: 'bg-chill-army-green text-white hover:bg-chill-army-green/80',
+        copy: 'bg-chill-army-green/30 text-chill-army-green border-chill-army-green border hover:bg-chill-army-green/10',
+        icon: 'bg-gray-50 hover:bg-gray-100',
       },
       size: {
         default: 'h-10 py-2 px-4',
