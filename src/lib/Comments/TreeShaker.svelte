@@ -14,7 +14,7 @@
 
 <ul>
   {#each tree as branch}
-    <li style={`margin-left: ${indent * 10}px;`} class="mb-4">
+    <li class={indent > 0 ? 'py-1' : 'py-1'}>
       <SingleComment comment={lookup[branch.id]} />
       {#if branch.children.length > 0}
         <svelte:self tree={branch.children} {lookup} indent={indent + 1} />
@@ -22,3 +22,10 @@
     </li>
   {/each}
 </ul>
+
+<style>
+  ul li ul li {
+    padding-left: 1rem;
+    border-left: solid 2px #ccc;
+  }
+</style>
