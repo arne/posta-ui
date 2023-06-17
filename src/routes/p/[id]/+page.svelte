@@ -13,7 +13,14 @@
   <div class="flex-auto w-64">
     <Post post={post.post_view} />
     {#if comments.comments.length > 0}
-      <CommentsView comments={comments.comments} />
+      <div class="p-2">
+        <h2 class="text-m font-medium mb-2">Comments({comments.comments.length}):</h2>
+        <CommentsView comments={comments.comments} />
+      </div>
+    {:else}
+      <div class="p-2">
+        <h2 class="text-m font-medium mb-2">No comment.</h2>
+      </div>
     {/if}
   </div>
   <div>
