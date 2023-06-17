@@ -1,4 +1,4 @@
-import { LemmyHttp } from 'lemmy-js-client';
+import api from '$lib/api/index.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }: { params: { id: string } }) {
@@ -6,7 +6,6 @@ export async function load({ params }: { params: { id: string } }) {
     throw error(420, 'Enhance your calm');
   }
   const id = parseInt(params.id);
-  const client: LemmyHttp = new LemmyHttp('https://posta.no');
-  const results = await client.getPost({ id: id });
-  return results;
+
+  return { response: await Promise.all([api.getPostById(id), api.getCommentsById(id)]) };
 }

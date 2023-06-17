@@ -3,19 +3,24 @@
   import Card from '$lib/Card.svelte';
   import { Button } from '$lib/button';
   import { Plus, Link } from 'lucide-svelte';
+  import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   export let data;
+  const [post, comments] = data.response;
 </script>
 
 <div class="flex gap-6">
   <div class="flex-auto w-64">
-    <Post post={data.post_view} />
+    <Post post={post.post_view} />
+    {#if comments.comments.length > 0}
+      <CommentsView comments={comments.comments} />
+    {/if}
   </div>
   <div>
     <section class="w-80">
-      <Card title={data.community_view.community.title}>
-        {#if data.community_view.community.description}
-          <div class=""><SvelteMarkdown source={data.community_view.community.description} /></div>
+      <Card title={post.community_view.community.title}>
+        {#if post.community_view.community.description}
+          <div class=""><SvelteMarkdown source={post.community_view.community.description} /></div>
         {/if}
 
         <Button variant="subscribe">
