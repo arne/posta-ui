@@ -1,5 +1,5 @@
 import { PUBLIC_API_URL } from '$env/static/public';
-import { LemmyHttp } from 'lemmy-js-client';
+import { LemmyHttp } from '../../client/http';
 
 const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL);
 
