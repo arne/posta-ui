@@ -2,6 +2,7 @@
   import '../app.css';
 
   import { Button } from '$lib/button';
+  import DarkMode from '$lib/DarkMode.svelte';
 </script>
 
 <header class="border-gray-200 border-b mb-4">
@@ -22,6 +23,7 @@
       <div class="flex items-center gap-3">
         <Button href="/login" variant="outline">Login</Button>
         <Button href="/register">Register</Button>
+        <DarkMode />
       </div>
     </div>
   </nav>
