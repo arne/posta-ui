@@ -38,7 +38,7 @@
 
 <script lang="ts">
   import { getContext } from 'svelte';
-  import type { FormColorType } from '../types';
+  import type { FormColorType } from '$lib/types';
   import Label from './Label.svelte';
 
   export let color: FormColorType = 'primary';
