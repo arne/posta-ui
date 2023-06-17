@@ -14,7 +14,7 @@
 
 <ul>
   {#each tree as branch}
-    <li class={indent > 0 ? 'py-1' : 'py-1'}>
+    <li class="py-1">
       <SingleComment comment={lookup[branch.id]} />
       {#if branch.children.length > 0}
         <svelte:self tree={branch.children} {lookup} indent={indent + 1} />
