@@ -3,6 +3,9 @@
   import relativeDate from '$lib/helpers/relativeDate.js';
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
 
+  import { Button } from '$lib/button';
+  import { ArrowUp, ArrowDown } from 'lucide-svelte';
+
   import SvelteMarkdown from 'svelte-markdown';
   export let post: PostView;
   export let link = false;
@@ -42,12 +45,13 @@
     </div>
 
     <div class="flex gap-1">
-      <a href="#up" class="border-gray-100 border block px-3 py-3 rounded-lg"
-        ><img src="/up.svg" alt="Upvote" /></a
-      >
-      <a href="#down" class="border-gray-100 border block px-3 py-3 rounded-lg"
-        ><img src="/down.svg" alt="Downvote" /></a
-      >
+      <Button variant="icon" size="icon">
+        <ArrowUp class="h-6 w-6" />
+      </Button>
+
+      <Button variant="icon" size="icon">
+        <ArrowDown class="h-6 w-6" />
+      </Button>
     </div>
   </div>
 </div>

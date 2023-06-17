@@ -1,5 +1,7 @@
 <script>
   import '../app.css';
+
+  import { Button } from '$lib/button';
 </script>
 
 <header class="border-gray-200 border-b mb-4">
@@ -17,17 +19,9 @@
           >
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <a
-          href="/login"
-          class="inline-flex justify-center rounded-lg border py-[calc(theme(spacing.2)-1px)] px-[calc(theme(spacing.3)-1px)] text-sm outline-2 outline-offset-2 transition-colors border-gray-300 text-gray-700 hover:border-gray-400 active:bg-gray-100 active:text-gray-700/80 hidden md:block"
-          >Login</a
-        >
-        <a
-          href="/register"
-          class="inline-flex justify-center rounded-lg py-2 px-3 text-sm font-semibold outline-2 outline-offset-2 transition-colors bg-gray-800 text-white hover:bg-gray-900 active:bg-gray-800 active:text-white/80 hidden md:block"
-          >Register</a
-        >
+      <div class="flex items-center gap-3">
+        <Button href="/login" variant="outline">Login</Button>
+        <Button href="/register">Register</Button>
       </div>
     </div>
   </nav>
