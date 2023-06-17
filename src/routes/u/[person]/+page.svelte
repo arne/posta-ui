@@ -1,5 +1,7 @@
 <script>
   import Post from '$lib/Post.svelte';
+  import SvelteMarkdown from 'svelte-markdown';
+
   export let data;
   const [person, posts] = [data.person_view.person, data.posts];
 </script>
@@ -42,7 +44,7 @@
       @{person.name}
 
       {#if person.bio}
-        <p>{person.bio}</p>
+        <div class="prose"><SvelteMarkdown source={person.bio} /></div>
       {/if}
 
       <ul>
