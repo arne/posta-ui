@@ -37,6 +37,7 @@
   "dependencies": {
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
+    "lemmy-js-client": "^0.17.2-rc.24",
     "lucide-svelte": "^0.244.0",
     "svelte-markdown": "^0.2.3",
     "tailwind-merge": "^1.13.2"
