@@ -17,7 +17,7 @@ const api = {
   getPostById: async (id: number) => {
     return await api.get('post', { form: { id: id.toString() } });
   },
-  getAnonFrontpagePosts: async () => {
+  getPostsForFrontpage: async () => {
     return await api.get('post/list', { form: { sort: 'Hot', limit: '10' } });
   }, //await client.getPosts({ limit: 10 }),
   getCommunities: async () => {
