@@ -26,7 +26,7 @@
     full: 'p-4 w-full group-first:rounded-l-lg group-last:rounded-r-lg text-gray-900 bg-gray-100 focus:ring-4 focus:ring-primary-300 focus:outline-none dark:bg-gray-700 dark:text-white',
     pill: 'py-3 px-4 text-white bg-primary-600 rounded-lg',
     underline:
-      'p-4 text-primary-600 border-b-2 border-red-600 dark:text-primary-500 dark:border-red-500',
+      'py-2 px-4 text-primary-600 border-b-2 border-posta-red dark:text-primary-500 dark:border-posta-red',
     none: '',
   };
 
@@ -34,7 +34,7 @@
     full: 'p-4 w-full group-first:rounded-l-lg group-last:rounded-r-lg text-gray-500 dark:text-gray-400 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-primary-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700',
     pill: 'py-3 px-4 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white',
     underline:
-      'p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 text-gray-500 dark:text-gray-400',
+      'py-2 px-4 border-b-2 border-transparent hover:text-black hover:border-black dark:hover:text-gray-300 text-gray-500 dark:text-gray-400',
     none: '',
   };
 
