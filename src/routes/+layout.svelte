@@ -7,7 +7,7 @@
   export let data;
 </script>
 
-<header class="border-gray-200 border-b mb-4">
+<header class="border-b mb-4">
   <nav>
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-50 flex justify-between py-4">
       <div class="relative z-10 flex items-center gap-4">
@@ -17,7 +17,7 @@
         </a>
         <div class="hidden lg:flex lg:gap-3">
           <a
-            class="relative -mx-3 -my-2 rounded-lg px-3 pt-3 py-2 text-m text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
+            class="relative -mx-3 -my-2 rounded-lg px-3 pt-3 py-2 text-m transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
             href="/c"><span class="relative z-10">Communities</span></a
           >
         </div>
