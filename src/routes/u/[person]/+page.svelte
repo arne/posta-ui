@@ -12,7 +12,6 @@
   dayjs.extend(relativeTime);
 
   export let data;
-  console.log(data);
   const [person, comments, counts, posts] = [
     data.person_view.person,
     data.comments,
