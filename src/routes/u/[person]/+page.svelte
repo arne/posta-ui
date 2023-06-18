@@ -46,7 +46,7 @@
         </div>
         {#each comments as comment}
           <div id={`#${comment.comment.id}`} class="mb-4 pb-2 border-b">
-            <h3 class="font-bold mb-3">{comment.post.name}</h3>
+            <a href={comment.post.ap_id}><h3 class="font-bold mb-3">{comment.post.name}</h3></a>
             <SingleComment {comment} />
           </div>
         {/each}

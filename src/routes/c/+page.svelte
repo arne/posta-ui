@@ -50,11 +50,7 @@
   <ul class="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-4 xl:gap-x-4">
     {#each data.communities as community}
       <li class="overflow-hidden rounded-md border border-gray-200">
-        <a
-          href={community.community.local
-            ? community.community.actor_id
-            : getLocalUrl(community.community.actor_id)}
-        >
+        <a href={getLocalUrl(community.community)}>
           <div
             class="flex items-center gap-x-4 border-b border-gray-200 bg-gray-50 p-3 bg-[url('{community
               .community.banner}')]"
