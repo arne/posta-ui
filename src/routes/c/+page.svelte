@@ -6,45 +6,11 @@
   dayjs.extend(relativeTime);
 
   import getLocalUrl from '$lib/helpers/getLocalUrl';
-
-  /*
-  {
-    community: {
-      id: 16,
-      name: 'posta',
-      title: 'Posta',
-      description: 'Community for discussions about this Lemmy instance.',
-      removed: false,
-      published: '2023-06-11T15:20:53.056486',
-      updated: '2023-06-11T16:55:49.345379',
-      deleted: false,
-      nsfw: false,
-      actor_id: 'https://posta.no/c/posta',
-      local: true,
-      icon: 'https://posta.no/pictrs/image/542e7893-f4de-452c-a364-91cf0e68160a.jpeg',
-      banner: 'https://posta.no/pictrs/image/ca0c521b-40d3-4a2b-adef-a2513ac6865c.png',
-      hidden: false,
-      posting_restricted_to_mods: false,
-      instance_id: 1
-    },
-    subscribed: 'NotSubscribed',
-    blocked: false,
-    counts: {
-      id: 10,
-      community_id: 16,
-      subscribers: 2,
-      posts: 1,
-      comments: 2,
-      published: '2023-06-11T15:20:53.056486',
-      users_active_day: 1,
-      users_active_week: 3,
-      users_active_month: 3,
-      users_active_half_year: 3,
-      hot_rank: 1
-    }
-  }
-  */
 </script>
+
+<svelte:head>
+  <title>Posta.no: Communities</title>
+</svelte:head>
 
 <div>
   <ul class="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-4 xl:gap-x-4">

@@ -31,6 +31,10 @@
   export let login;
 </script>
 
+<svelte:head>
+  <title>Posta.no: Login</title>
+</svelte:head>
+
 <div class="max-w-sm mb-12 border rounded-md">
   <form method="POST" action="?/login">
     <div class="p-2 flex flex-col gap-3">

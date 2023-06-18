@@ -4,6 +4,10 @@
   export let data;
 </script>
 
+<svelte:head>
+  <title>Posta.no: Frontpage</title>
+</svelte:head>
+
 <div class="flex gap-6">
   <main class="flex-auto w-64">
     {#each data.posts as post}

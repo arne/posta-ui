@@ -20,6 +20,10 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Posta.no: {person.name}</title>
+</svelte:head>
+
 <div class="flex flex-col gap-6 md:flex-row">
   <main class="flex-auto md:w-64 order-2 md:order-1">
     <Tabs style="underline">
