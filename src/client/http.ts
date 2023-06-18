@@ -1,4 +1,3 @@
-import FormData from 'form-data';
 import { AddAdmin } from './types/AddAdmin';
 import { AddAdminResponse } from './types/AddAdminResponse';
 import { AddModToCommunity } from './types/AddModToCommunity';
