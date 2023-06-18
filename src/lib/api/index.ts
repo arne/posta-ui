@@ -10,7 +10,12 @@ const api = {
   getPostById: async (id: number) => await client.getPost({ id }),
   getPostsByCommunityName: async (community_name: string) =>
     await client.getPosts({ community_name }),
-  getPostsForFrontpage: async () => await client.getPosts({ limit: 20, sort: 'Hot' }),
+  getPostsForFrontpage: async (jwt) => {
+    if (jwt) {
+      return await client.getPosts({ auth: jwt, limit: 20, sort: 'Hot', type_: 'Subscribed' });
+    }
+    return await client.getPosts({ limit: 20, sort: 'Hot' });
+  },
   getCommunities: async () => await client.listCommunities({ limit: 50 }),
   getPersonDetails: async (person_id: number) => await client.getPersonDetails({ person_id }),
   getCommentsById: async (post_id: number) => await client.getComments({ post_id, max_depth: 10 }),
