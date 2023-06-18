@@ -5,9 +5,10 @@
   import { Plus, Minus } from 'lucide-svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
+  import Subscribe from '$lib/Subscribe.svelte';
   export let data;
   const [post, comments] = data.response;
-  const subscribed = post.community_view.subscribed === 'Subscribed';
+  const subscribed = post.community_view.subscribed;
 </script>
 
 <svelte:head>
@@ -35,20 +36,11 @@
           <div class=""><SvelteMarkdown source={post.community_view.community.description} /></div>
         {/if}
 
-        <form action={`/c/${post.community_view.community.id}?/updatesub`} method="POST">
-          <input type="hidden" name="communityId" value={post.community_view.community.id} />
-          <input type="hidden" name="subscribe" value={!subscribed} />
-          <input type="hidden" name="redirect" value={`/p/${data.id}`} />
-          <Button type="submit" variant="subscribe">
-            {#if subscribed}
-              <Minus class="mr-2 h-4 w-4" />
-              Unsubscribe
-            {:else}
-              <Plus class="mr-2 h-4 w-4" />
-              Subscribe
-            {/if}
-          </Button>
-        </form>
+        <Subscribe
+          redirect={`/p/${data.id}`}
+          communityId={post.community_view.community.id}
+          {subscribed}
+        />
       </Card>
     </section>
   </div>

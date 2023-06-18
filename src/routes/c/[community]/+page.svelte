@@ -1,14 +1,13 @@
-<script>
+<script lang="ts">
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
-  import Button from '$lib/button/Button.svelte';
-  import { Plus, Minus, Link } from 'lucide-svelte';
   import SvelteMarkdown from 'svelte-markdown';
+  import Subscribe from '$lib/Subscribe.svelte';
 
   export let data;
   const [community, subscribed, slug] = [
     data.content.posts[0].community,
-    data.content.posts[0].subscribed === 'Subscribed',
+    data.content.posts[0].subscribed,
     data.slug,
   ];
 </script>
@@ -29,20 +28,8 @@
         <div class=""><SvelteMarkdown source={community.description} /></div>
       {/if}
 
-      <form action={`/c/${slug}?/updatesub`} method="POST">
-        <input type="hidden" name="communityId" value={community.id} />
-        <input type="hidden" name="subscribe" value={!subscribed} />
-        <input type="hidden" name="redirect" value={`/c/${slug}`} />
-        <Button type="submit" variant="subscribe">
-          {#if subscribed}
-            <Minus class="mr-2 h-4 w-4" />
-            Unsubscribe
-          {:else}
-            <Plus class="mr-2 h-4 w-4" />
-            Subscribe
-          {/if}
-        </Button>
-      </form>
+      <Subscribe redirect={`/c/${slug}`} communityId={community.id} {subscribed} />
+
       <!-- 
       <Button variant="copy">
         <Link class="mr-2 h-4 w-4" />
