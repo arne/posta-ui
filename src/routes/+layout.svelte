@@ -4,7 +4,7 @@
   import { Button } from '$lib/button';
   import DarkMode from '$lib/DarkMode.svelte';
 
-  export let data: PageData;
+  export let data;
 </script>
 
 <header class="border-gray-200 border-b mb-4">
@@ -23,8 +23,8 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
-        {#if data.email}
-          <Button href="/user">{data.email}</Button>
+        {#if data.person}
+          <Button href="/u">{data.person.name}</Button>
           <Button href="/logout" variant="outline">Logout</Button>
         {:else}
           <Button href="/login" variant="outline">Login</Button>

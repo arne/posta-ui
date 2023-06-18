@@ -1,8 +1,6 @@
-import api from '$lib/api';
-import type { PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 
-export const load = async ({ cookies }) => {
+export async function load({ cookies }) {
   cookies.set('jwt', '');
-  throw redirect('301', '/');
-};
+  return redirect(301, '/');
+}

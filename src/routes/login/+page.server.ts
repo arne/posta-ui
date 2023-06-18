@@ -5,7 +5,7 @@ import type { Actions } from './$types';
 export const actions = {
   login: async ({ cookies, request }) => {
     const data = await request.formData();
-    var res;
+    let res;
     try {
       res = await api.login(
         data.get('username_or_email')?.toString() || '',
