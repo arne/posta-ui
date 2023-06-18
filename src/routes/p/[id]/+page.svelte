@@ -9,6 +9,10 @@
   const [post, comments] = data.response;
 </script>
 
+<svelte:head>
+  <title>Posta.no: {post.post_view.post.name}</title>
+</svelte:head>
+
 <div class="flex gap-6">
   <div class="flex-auto w-64">
     <Post post={post.post_view} />

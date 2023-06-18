@@ -5,10 +5,13 @@
   import SvelteMarkdown from 'svelte-markdown';
   import { Globe, MessagesSquare, User, SquareStack } from 'lucide-svelte';
 
-
   export let data;
   const [person, posts] = [data.person_view.person, data.posts];
 </script>
+
+<svelte:head>
+  <title>Posta.no: {person.name}</title>
+</svelte:head>
 
 <div class="flex gap-6">
   <main class="flex-auto w-64">

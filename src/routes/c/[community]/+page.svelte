@@ -9,6 +9,10 @@
   const community = data.posts[0].community;
 </script>
 
+<svelte:head>
+  <title>Posta.no: {community.title}</title>
+</svelte:head>
+
 <div class="flex gap-6">
   <main class="flex-auto w-64">
     {#each data.posts as post}
