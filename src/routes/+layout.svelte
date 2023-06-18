@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import '../app.css';
 
   import { Button } from '$lib/button';
   import DarkMode from '$lib/DarkMode.svelte';
 
-  export let site;
+  export let data: PageData;
 </script>
 
 <header class="border-gray-200 border-b mb-4">
@@ -23,9 +23,13 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <Button href="/login" variant="outline">Login</Button>
-        <Button href="/register">Register</Button>
-        <p>{site}</p>
+        {#if data.email}
+          <Button href="/user">{data.email}</Button>
+          <Button href="/logout" variant="outline">Logout</Button>
+        {:else}
+          <Button href="/login" variant="outline">Login</Button>
+          <Button href="/register">Register</Button>
+        {/if}
         <DarkMode />
       </div>
     </div>

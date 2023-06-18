@@ -15,7 +15,7 @@
 
   let minmaxValue = 5;
 
-  let email = '';
+  let username_or_email = '';
   let password = '';
 
   let selected;
@@ -27,6 +27,7 @@
 
   let fileValue;
 
+  export let data: PageData;
   export let login;
 </script>
 
@@ -35,11 +36,16 @@
     <div class="p-2 flex flex-col gap-3">
       <Label class="space-y-2">
         <span>Email</span>
-        <Input type="text" placeholder="User/Email" bind:value={email} />
+        <Input
+          type="text"
+          name="username_or_email"
+          placeholder="User/Email"
+          bind:value={username_or_email}
+        />
       </Label>
       <Label class="space-y-2">
         <span>Password</span>
-        <Input type="password" placeholder="Password" bind:value={password} />
+        <Input type="password" name="password" placeholder="Password" bind:value={password} />
       </Label>
     </div>
 
@@ -48,6 +54,10 @@
     </div>
   </form>
 </div>
+{#if data.error}
+  <Toggle color="red" checked>{data.error}</Toggle>
+  <div class="flex gap-3" />
+{/if}
 
 {#if 0}
   <div>
