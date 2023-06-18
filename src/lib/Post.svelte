@@ -1,14 +1,20 @@
 <script lang="ts">
   import type { PostView } from 'lemmy-js-client';
-  import relativeDate from '$lib/helpers/relativeDate.js';
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
+  import getLocalUrl from '$lib/helpers/getLocalUrl';
 
   import { Button } from '$lib/button';
   import { ArrowUp, ArrowDown } from 'lucide-svelte';
 
   import SvelteMarkdown from 'svelte-markdown';
+
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
+  dayjs.extend(relativeTime);
+
   export let post: PostView;
   export let link = false;
+  export let outsideCommunity = false;
 </script>
 
 <div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
@@ -43,9 +49,16 @@
   <div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
     <div>
       <p>
-        by <a href={`/u/${post.creator.id}`} class="underline hover:no-underline"
-          >{post.creator.name}</a
-        >
+        by
+        <a href={`/u/${post.creator.id}`} class="underline hover:no-underline">
+          {post.creator.name}
+        </a>
+        {#if outsideCommunity}
+          to
+          <a href={getLocalUrl(post.community)} class="underline hover:no-underline">
+            {post.community.title}
+          </a>
+        {/if}
       </p>
       <ul class="flex items-center gap-2 mt-2">
         <li class="flex gap-1">
@@ -55,7 +68,7 @@
         <li class="flex gap-1"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
         <li class="flex gap-1">
           <img src="/time.svg" alt={post.counts.published} />
-          {relativeDate(post.counts.published)}
+          {dayjs().to(dayjs(post.counts.published))}
         </li>
       </ul>
     </div>

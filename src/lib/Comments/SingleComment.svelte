@@ -1,7 +1,10 @@
 <script lang="ts">
   import type { CommentView } from 'lemmy-js-client';
   import SvelteMarkdown from 'svelte-markdown';
-  import relativeDate from '$lib/helpers/relativeDate.js';
+
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
+  dayjs.extend(relativeTime);
 
   export let comment: CommentView;
 </script>
@@ -11,7 +14,7 @@
     <a href={`/u/${comment.creator.id}`} class="underline hover:no-underline"
       >{comment.creator.name}</a
     >
-    {relativeDate(comment.counts.published)}
+    {dayjs().to(dayjs(comment.counts.published))}
   </div>
   <SvelteMarkdown source={comment.comment.content} />
   <ul class="flex items-center gap-2 mt-2">
