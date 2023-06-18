@@ -12,7 +12,7 @@
 </script>
 
 <div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
-  <ConditionalWrapper href={`/p/${post.post.id}`} class="no-show" {link}>
+  <ConditionalWrapper href={`/p/${post.post.id}`} {link}>
     <div class="content p-2">
       <h1 class="font-semibold text-lg">{post.post.name}</h1>
       {#if post.post.thumbnail_url}
@@ -33,7 +33,13 @@
       {/if}
     </div>
   </ConditionalWrapper>
-
+  {#if post.post.url}
+    <a href={post.post.url} class="p-2 border-t bg-gray-50 border-gray-200 pt-3 text-sm block">
+      Source: <span class="border-posta-red border-b"
+        >{post.post.url.length > 60 ? post.post.url.substring(0, 60) + '…' : post.post.url}</span
+      >
+    </a>
+  {/if}
   <div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
     <div>
       <p>
