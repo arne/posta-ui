@@ -1,6 +1,7 @@
 import api from '$lib/api';
+import type { Cookies } from '@sveltejs/kit';
 
-export async function load({ cookies }) {
+export async function load({ cookies }: { cookies: Cookies }) {
   const jwt = cookies.get('jwt');
   const site = await api.getSite(jwt || '');
 
