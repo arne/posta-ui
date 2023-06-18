@@ -1,4 +1,3 @@
-import FormData from 'form-data';
 import { AddAdmin } from './types/AddAdmin';
 import { AddAdminResponse } from './types/AddAdminResponse';
 import { AddModToCommunity } from './types/AddModToCommunity';
@@ -1178,12 +1177,15 @@ export class LemmyHttp {
         body: JSON.stringify(form),
       });
     }
-    const json = await response.json();
-
-    if (!response.ok) {
-      throw json['error'] ?? response.statusText;
-    } else {
-      return json;
+    var json;
+    try {
+      json = await response.json();
+    } finally {
+      if (!response.ok) {
+        throw json ? json.error ?? response.statusText : response.statusText;
+      } else {
+        return json;
+      }
     }
   }
 }
