@@ -57,7 +57,11 @@
   <section class="md:w-80 order-1 md:order-2">
     <div class="h-12 sm:h-32 overflow-hidden">
       {#if person.banner}
-        <img src={person.banner} alt="Banner" class="w-full rounded-tl-md rounded-tr-md" />
+        <img
+          src={`${person.banner}?format=webp&thumbnail=512`}
+          alt="Banner"
+          class="rounded-tl-md rounded-tr-md h-12 sm:h-32 object-cover"
+        />
       {:else}
         <div class="bg-chill-army-green h-32 w-full rounded-tl-md rounded-tr-md" />
       {/if}
@@ -68,7 +72,7 @@
       >
         {#if person.avatar}
           <img
-            src={person.avatar}
+            src={`${person.avatar}?format=webp&thumbnail=200`}
             class="w-20 h-20 sm:w-24 sm:h-24 rounded-full text-left p-0.5"
             alt={person.name}
           />
