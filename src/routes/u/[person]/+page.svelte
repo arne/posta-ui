@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <div class="border border-gray-200 border-t-0 rounded-bl-md rounded-br-md p-2 pt-16">
+    <div class="border border-t-0 rounded-bl-md rounded-br-md p-2 pt-16">
       <h4 class="text-xl font-medium">
         {person.display_name || person.name}
       </h4>

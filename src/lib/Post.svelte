@@ -17,7 +17,7 @@
   export let outsideCommunity = false;
 </script>
 
-<div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
+<div class="mb-3 border rounded-md overflow-hidden">
   <ConditionalWrapper href={`/p/${post.post.id}`} {link}>
     <div class="content p-2">
       <h1 class="font-semibold text-lg">{post.post.name}</h1>
@@ -26,7 +26,7 @@
       {/if}
       {#if post.post.body}
         {#if link}
-          <div class="prose">
+          <div class="prose dark:prose-invert">
             <SvelteMarkdown
               source={post.post.body.split('\n\n')[0]}
             />{#if post.post.body.split('\n\n').length > 1}<p>
@@ -34,19 +34,22 @@
               </p>{/if}
           </div>
         {:else}
-          <div class="prose"><SvelteMarkdown source={post.post.body} /></div>
+          <div class="prose dark:prose-invert"><SvelteMarkdown source={post.post.body} /></div>
         {/if}
       {/if}
     </div>
   </ConditionalWrapper>
   {#if post.post.url}
-    <a href={post.post.url} class="p-2 border-t bg-gray-50 border-gray-200 pt-3 text-sm block">
+    <a
+      href={post.post.url}
+      class="p-2 border-t bg-gray-50 dark:bg-transparent border-t pt-3 text-sm block"
+    >
       Source: <span class="border-posta-red border-b"
         >{post.post.url.length > 60 ? post.post.url.substring(0, 60) + '…' : post.post.url}</span
       >
     </a>
   {/if}
-  <div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
+  <div class="p-2 flex items-center justify-between border-t pt-3 text-sm">
     <div>
       <p>
         by
