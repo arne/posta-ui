@@ -13,6 +13,7 @@
 
   export let post: PostView;
   export let link = false;
+  export let outsideCommunity = false;
 </script>
 
 <div class="mb-3 border-gray-200 border rounded-md overflow-hidden">
@@ -47,9 +48,16 @@
   <div class="p-2 flex items-center justify-between border-t border-gray-200 pt-3 text-sm">
     <div>
       <p>
-        by <a href={`/u/${post.creator.id}`} class="underline hover:no-underline"
-          >{post.creator.name}</a
-        >
+        by
+        <a href={`/u/${post.creator.id}`} class="underline hover:no-underline">
+          {post.creator.name}
+        </a>
+        {#if outsideCommunity}
+          from
+          <a href={`/c/${post.community.name}`} class="underline hover:no-underline">
+            {post.community.title}
+          </a>
+        {/if}
       </p>
       <ul class="flex items-center gap-2 mt-2">
         <li class="flex gap-1">
