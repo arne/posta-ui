@@ -2,11 +2,13 @@
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
   import { Button } from '$lib/button';
-  import { Plus, Link } from 'lucide-svelte';
+  import { Plus, Minus } from 'lucide-svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
+  import Subscribe from '$lib/Subscribe.svelte';
   export let data;
   const [post, comments] = data.response;
+  const subscribed = post.community_view.subscribed;
 </script>
 
 <svelte:head>
@@ -34,15 +36,11 @@
           <div class=""><SvelteMarkdown source={post.community_view.community.description} /></div>
         {/if}
 
-        <Button variant="subscribe">
-          <Plus class="mr-2 h-4 w-4" />
-          Subscribe
-        </Button>
-
-        <Button variant="copy">
-          <Link class="mr-2 h-4 w-4" />
-          Copy link
-        </Button>
+        <Subscribe
+          redirect={`/p/${data.id}`}
+          communityId={post.community_view.community.id}
+          {subscribed}
+        />
       </Card>
     </section>
   </div>
