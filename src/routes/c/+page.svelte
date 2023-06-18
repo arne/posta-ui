@@ -26,8 +26,13 @@
               alt={community.community.title}
               class="inline-block h-10 w-10 rounded-full"
             />
-            <div class="text-sm font-medium leading-6 text-gray-900">
-              {community.community.title}
+            <div>
+              <div class="text-sm font-medium leading-6 text-gray-900">
+                {community.community.title}
+              </div>
+              <div class="text-xs">
+                !{getLocalUrl(community.community).substring(3)}
+              </div>
             </div>
           </div>
         </a>
@@ -46,7 +51,10 @@
           <div class="flex justify-between gap-x-4 py-1">
             <dt class="text-gray-500">Subscribers</dt>
             <dd class="flex items-start gap-x-2">
-              <div class="font-medium text-gray-900">{community.counts.subscribers}</div>
+              <div class="font-medium text-gray-900">
+                {community.subscribed === 'Subscribed'}
+                {community.counts.subscribers}
+              </div>
             </dd>
           </div>
 
