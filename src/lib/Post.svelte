@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PostView } from 'lemmy-js-client';
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
+  import getLocalUrl from '$lib/helpers/getLocalUrl';
 
   import { Button } from '$lib/button';
   import { ArrowUp, ArrowDown } from 'lucide-svelte';
@@ -53,8 +54,8 @@
           {post.creator.name}
         </a>
         {#if outsideCommunity}
-          from
-          <a href={`/c/${post.community.name}`} class="underline hover:no-underline">
+          to
+          <a href={getLocalUrl(post.community)} class="underline hover:no-underline">
             {post.community.title}
           </a>
         {/if}

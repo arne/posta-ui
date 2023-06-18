@@ -36,7 +36,7 @@
           Posts
         </div>
         {#each posts as post}
-          <Post {post} link />
+          <Post {post} link outsideCommunity />
         {/each}
       </TabItem>
       <TabItem>
