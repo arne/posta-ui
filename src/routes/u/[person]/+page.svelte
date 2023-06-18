@@ -60,7 +60,7 @@
         <img
           src={`${person.banner}?format=webp&thumbnail=512`}
           alt="Banner"
-          class="rounded-tl-md rounded-tr-md h-12 sm:h-32 object-cover"
+          class="rounded-tl-md rounded-tr-md w-full h-full object-cover"
         />
       {:else}
         <div class="bg-chill-army-green h-32 w-full rounded-tl-md rounded-tr-md" />
