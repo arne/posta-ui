@@ -15,7 +15,7 @@ export const actions = {
       return { success: false, error: e };
     }
     if (res.jwt !== undefined) {
-      cookies.set('jwt', res.jwt);
+      cookies.set('jwt', res.jwt, { maxAge: 60 * 60 * 24 * 30 });
       throw redirect(302, '/');
     }
     return { success: false };
