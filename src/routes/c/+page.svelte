@@ -1,7 +1,10 @@
 <script>
   export let data;
 
-  import relativeDate from '$lib/helpers/relativeDate';
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
+  dayjs.extend(relativeTime);
+
   import getLocalUrl from '$lib/helpers/getLocalUrl';
 </script>
 
@@ -13,11 +16,7 @@
   <ul class="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-4 xl:gap-x-4">
     {#each data.communities as community}
       <li class="overflow-hidden rounded-md border border-gray-200">
-        <a
-          href={community.community.local
-            ? community.community.actor_id
-            : getLocalUrl(community.community.actor_id)}
-        >
+        <a href={getLocalUrl(community.community)}>
           <div
             class="flex items-center gap-x-4 border-b border-gray-200 bg-gray-50 p-3 bg-[url('{community
               .community.banner}')]"
@@ -38,8 +37,8 @@
             <dd class="text-gray-700">
               <time datetime={community.community.updated}
                 >{community.community.updated
-                  ? relativeDate(community.community.updated)
-                  : relativeDate(community.community.published)}</time
+                  ? dayjs().to(dayjs(community.community.updated))
+                  : dayjs().to(dayjs(community.community.published))}</time
               >
             </dd>
           </div>

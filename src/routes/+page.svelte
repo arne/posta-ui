@@ -11,7 +11,7 @@
 <div class="flex gap-6">
   <main class="flex-auto w-64">
     {#each data.posts as post}
-      <Post {post} link />
+      <Post {post} link outsideCommunity />
     {/each}
   </main>
 
