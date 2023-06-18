@@ -2,11 +2,12 @@
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
   import { Button } from '$lib/button';
-  import { Plus, Link } from 'lucide-svelte';
+  import { Plus, Minus } from 'lucide-svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   export let data;
   const [post, comments] = data.response;
+  const subscribed = post.community_view.subscribed === 'Subscribed';
 </script>
 
 <svelte:head>
@@ -34,15 +35,20 @@
           <div class=""><SvelteMarkdown source={post.community_view.community.description} /></div>
         {/if}
 
-        <Button variant="subscribe">
-          <Plus class="mr-2 h-4 w-4" />
-          Subscribe
-        </Button>
-
-        <Button variant="copy">
-          <Link class="mr-2 h-4 w-4" />
-          Copy link
-        </Button>
+        <form action={`/c/${post.community_view.community.id}?/updatesub`} method="POST">
+          <input type="hidden" name="communityId" value={post.community_view.community.id} />
+          <input type="hidden" name="subscribe" value={!subscribed} />
+          <input type="hidden" name="redirect" value={`/p/${data.id}`} />
+          <Button type="submit" variant="subscribe">
+            {#if subscribed}
+              <Minus class="mr-2 h-4 w-4" />
+              Unsubscribe
+            {:else}
+              <Plus class="mr-2 h-4 w-4" />
+              Subscribe
+            {/if}
+          </Button>
+        </form>
       </Card>
     </section>
   </div>
