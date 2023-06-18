@@ -1,12 +1,16 @@
 <script lang="ts">
   import type { PostView } from 'lemmy-js-client';
-  import relativeDate from '$lib/helpers/relativeDate.js';
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
 
   import { Button } from '$lib/button';
   import { ArrowUp, ArrowDown } from 'lucide-svelte';
 
   import SvelteMarkdown from 'svelte-markdown';
+
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
+  dayjs.extend(relativeTime);
+
   export let post: PostView;
   export let link = false;
 </script>
@@ -55,7 +59,7 @@
         <li class="flex gap-1"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
         <li class="flex gap-1">
           <img src="/time.svg" alt={post.counts.published} />
-          {relativeDate(post.counts.published)}
+          {dayjs().to(dayjs(post.counts.published))}
         </li>
       </ul>
     </div>

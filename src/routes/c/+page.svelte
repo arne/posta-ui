@@ -1,7 +1,10 @@
 <script>
   export let data;
 
-  import relativeDate from '$lib/helpers/relativeDate';
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
+  dayjs.extend(relativeTime);
+
   import getLocalUrl from '$lib/helpers/getLocalUrl';
 
   /*
@@ -72,8 +75,8 @@
             <dd class="text-gray-700">
               <time datetime={community.community.updated}
                 >{community.community.updated
-                  ? relativeDate(community.community.updated)
-                  : relativeDate(community.community.published)}</time
+                  ? dayjs().to(dayjs(community.community.updated))
+                  : dayjs().to(dayjs(community.community.published))}</time
               >
             </dd>
           </div>
