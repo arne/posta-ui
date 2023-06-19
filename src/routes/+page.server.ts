@@ -1,9 +1,9 @@
 import api from '$lib/api';
-import { Cookies } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
 
-export async function load({ cookies }: { cookies: Cookies }) {
+import type { Actions, PageServerLoadEvent } from './$types';
+
+export async function load({ cookies }: PageServerLoadEvent) {
   const jwt = cookies.get('jwt');
 
   return await api.getPostsForFrontpage(jwt);

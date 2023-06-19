@@ -1,14 +1,8 @@
 import api from '$lib/api/index.js';
-import { Cookies, error, redirect } from '@sveltejs/kit';
+import { ServerLoadEvent, error, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
-export async function load({
-  cookies,
-  params,
-}: {
-  params: { community: string };
-  cookies: Cookies;
-}) {
+export async function load({ cookies, params }: ServerLoadEvent) {
   const jwt = cookies.get('jwt');
   if (typeof params.community !== 'string') {
     throw error(420, 'Enhance your calm');
