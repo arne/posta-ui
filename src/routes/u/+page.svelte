@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let data;
   const [person, counts] = [data.user?.person, data.user?.counts];
 </script>
