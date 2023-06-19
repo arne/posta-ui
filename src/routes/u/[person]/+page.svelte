@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Post from '$lib/Post.svelte';
   import SingleComment from '$lib/Comments/SingleComment.svelte';
   import { Tabs, TabItem } from '$lib/tabs';
