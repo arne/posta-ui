@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
   export let data;
