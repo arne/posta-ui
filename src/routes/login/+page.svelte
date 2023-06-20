@@ -1,13 +1,9 @@
 <script lang="ts">
-  import { Label, Input, Toggle } from '$lib/forms';
+  import { Label, Input } from '$lib/forms';
   import { enhance } from '$app/forms';
-
   import { Button } from '$lib/button';
 
   export let form;
-
-  export let data;
-  export let login;
 </script>
 
 <svelte:head>
@@ -15,7 +11,7 @@
 </svelte:head>
 
 <div class="max-w-sm mb-12 border rounded-md">
-  <form method="POST" action="?/login" use:enhance>
+  <form method="POST" use:enhance>
     <div class="p-2 flex flex-col gap-3">
       <Label class="space-y-2">
         <span>User/Email</span>
@@ -34,9 +30,8 @@
       </Label>
     </div>
 
-    <div class="p-2 border-t">
-      <Button on:click={login}>Login</Button>
-    </div>
+    <Button>Login</Button>
+    <div class="p-2 border-t" />
   </form>
 </div>
 

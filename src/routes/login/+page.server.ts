@@ -2,7 +2,7 @@ import api from '$lib/api';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
-  login: async ({ cookies, request }) => {
+  default: async ({ cookies, request }) => {
     const data = await request.formData();
     const email = data.get('username_or_email')?.toString() || '';
     if (email === '') {
