@@ -10,7 +10,12 @@
     "sourceMap": true,
     "strict": true,
     "importsNotUsedAsValues": "preserve",
-    "preserveValueImports": false
+    "preserveValueImports": false,
+    "plugins": [
+      {
+        "name": "typescript-svelte-plugin"
+      }
+    ]
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //
