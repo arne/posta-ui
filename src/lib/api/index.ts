@@ -1,7 +1,7 @@
 import { PUBLIC_API_URL } from '$env/static/public';
 import { LemmyHttp } from '../../client/http';
 
-const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL);
+const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL || 'https://posta.no');
 
 const api = {
   login: async (user: string, password: string) =>

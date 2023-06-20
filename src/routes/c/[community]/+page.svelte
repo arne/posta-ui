@@ -5,31 +5,11 @@
   import Subscribe from '$lib/Subscribe.svelte';
 
   export let data;
-  const [community, subscribed, slug] = [
+  $: [community, subscribed, slug] = [
     data.content.posts[0].community,
     data.content.posts[0].subscribed,
     data.slug,
   ];
-
-  const submitCreateNote: Submitfunction = ({ form, data, action, cancel }) => {
-    const { title, content } = Object.fromEntries(data);
-    if (title.length < 1) {
-      console.log('yo');
-    }
-    return async (result, update) => {
-      switch (result.type) {
-        case 'success':
-          console.log('yo');
-          break;
-        case 'invalid':
-          console.log('yo');
-          break;
-        default:
-          break;
-      }
-      await update();
-    };
-  };
 </script>
 
 <svelte:head>

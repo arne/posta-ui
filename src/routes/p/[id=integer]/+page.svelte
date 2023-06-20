@@ -6,7 +6,7 @@
   import Subscribe from '$lib/Subscribe.svelte';
   export let data;
   const [post, comments] = data.response;
-  const subscribed = post.community_view.subscribed;
+  $: subscribed = data.response[0].community_view.subscribed;
 </script>
 
 <svelte:head>

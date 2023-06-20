@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CommentView } from 'lemmy-js-client';
+  import type { CommentView } from '../../client/types/CommentView';
   import SvelteMarkdown from 'svelte-markdown';
 
   import dayjs from 'dayjs';

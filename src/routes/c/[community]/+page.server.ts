@@ -25,10 +25,9 @@ export const actions = {
     const data = await request.formData();
     const subscribe = data.get('subscribe') === 'true';
     const community = data.get('communityId') as string;
-    const redirecturl = data.get('redirect') as string;
+    // const redirecturl = data.get('redirect') as string;
     const jwt = cookies.get('jwt') || '';
 
     await api.unsubscribeFromCommunity(parseInt(community), jwt, subscribe);
-    throw redirect(303, redirecturl);
   },
 } satisfies Actions;

@@ -2,7 +2,6 @@
   import { enhance } from '$app/forms';
   import Button from './button/Button.svelte';
   import { Plus, Minus } from 'lucide-svelte';
-  import { invalidate } from '$app/navigation';
 
   export let redirect: string;
   export let communityId: number;
@@ -10,26 +9,14 @@
 
   import type { SubmitFunction } from '@sveltejs/kit';
 
-  const subscribe: SubmitFunction = ({ formData, formElement, action }) => {
-    console.log(formData, formElement, action);
-    const test = Object.fromEntries(formData) as {
-      communityId: string;
-      subscribe: string;
+  const subscribe: SubmitFunction = ({ formData }) => {
+    const form = Object.fromEntries(formData) as {
       redirect: string;
     };
-    console.log(test);
-    console.log(test.redirect);
-
     return async ({ result, update }) => {
-      switch (result.type) {
-        case 'success':
-          console.log('yo');
-          break;
-        default:
-          break;
+      if (result.type === 'success') {
+        await update();
       }
-
-      await invalidate(test.redirect);
     };
   };
 </script>
