@@ -1,6 +1,5 @@
 import api from '$lib/api';
 import { redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
 
 export const actions = {
   login: async ({ cookies, request }) => {
@@ -21,4 +20,4 @@ export const actions = {
     }
     return { success: false };
   },
-} satisfies Actions;
+};

@@ -1,8 +1,7 @@
 import api from '$lib/api/index.js';
-import { ServerLoadEvent, error, redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import { error, redirect } from '@sveltejs/kit';
 
-export async function load({ cookies, params }: ServerLoadEvent) {
+export async function load({ cookies, params }) {
   const jwt = cookies.get('jwt');
   if (typeof params.community !== 'string') {
     throw error(420, 'Enhance your calm');
@@ -25,4 +24,4 @@ export const actions = {
     await api.unsubscribeFromCommunity(parseInt(community), jwt, subscribe);
     throw redirect(303, redirecturl);
   },
-} satisfies Actions;
+};

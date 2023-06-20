@@ -1,7 +1,6 @@
 import api from '$lib/api/index.js';
-import { PageServerLoadEvent } from './$types';
 
-export async function load({ params, cookies }: PageServerLoadEvent) {
+export async function load({ params, cookies }) {
   const id = parseInt(params.id);
   const jwt = cookies.get('jwt') || '';
 

@@ -1,8 +1,7 @@
 import api from '$lib/api/index.js';
 import { redirect } from '@sveltejs/kit';
-import { PageServerLoadEvent } from './$types';
 
-export async function load({ cookies }: PageServerLoadEvent) {
+export async function load({ cookies }) {
   const jwt = cookies.get('jwt');
   const site = await api.getSite(jwt || '');
   if (!site.my_user) {

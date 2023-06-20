@@ -1,7 +1,6 @@
 import api from '$lib/api';
-import type { LayoutServerLoadEvent } from './$types';
 
-export async function load({ cookies }: LayoutServerLoadEvent) {
+export async function load({ cookies }) {
   const jwt = cookies.get('jwt');
   const site = await api.getSite(jwt || '');
 
