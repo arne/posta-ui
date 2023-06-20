@@ -1,14 +1,12 @@
 <script>
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
-  import { Button } from '$lib/button';
-  import { Plus, Minus } from 'lucide-svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   import Subscribe from '$lib/Subscribe.svelte';
   export let data;
   const [post, comments] = data.response;
-  const subscribed = post.community_view.subscribed;
+  $: subscribed = data.response[0].community_view.subscribed;
 </script>
 
 <svelte:head>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PostView } from 'lemmy-js-client';
+  import type { PostView } from '../client/types/PostView';
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
   import getLocalUrl from '$lib/helpers/getLocalUrl';
 

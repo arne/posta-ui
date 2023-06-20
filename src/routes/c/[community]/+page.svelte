@@ -5,7 +5,7 @@
   import Subscribe from '$lib/Subscribe.svelte';
 
   export let data;
-  const [community, subscribed, slug] = [
+  $: [community, subscribed, slug] = [
     data.content.posts[0].community,
     data.content.posts[0].subscribed,
     data.slug,
