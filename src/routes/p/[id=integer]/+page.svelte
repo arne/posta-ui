@@ -5,7 +5,7 @@
   import SvelteMarkdown from 'svelte-markdown';
   import Subscribe from '$lib/Subscribe.svelte';
   export let data;
-  const [post, comments] = data.response;
+  $: [post, comments] = data.response;
   $: subscribed = data.response[0].community_view.subscribed;
 </script>
 

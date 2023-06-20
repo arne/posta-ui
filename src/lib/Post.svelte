@@ -1,15 +1,14 @@
 <script lang="ts">
   import type { PostView } from '../client/types/PostView';
-  import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
+  import dayjs from 'dayjs';
+
+  import relativeTime from 'dayjs/plugin/relativeTime.js';
   import getLocalUrl from '$lib/helpers/getLocalUrl';
 
-  import { Button } from '$lib/button';
-  import { ArrowUp, ArrowDown } from 'lucide-svelte';
-
+  import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
+  import PostVote from './PostVote.svelte';
   import SvelteMarkdown from 'svelte-markdown';
 
-  import dayjs from 'dayjs';
-  import relativeTime from 'dayjs/plugin/relativeTime.js';
   dayjs.extend(relativeTime);
 
   export let post: PostView;
@@ -75,15 +74,6 @@
         </li>
       </ul>
     </div>
-
-    <div class="flex gap-1">
-      <Button variant="icon" size="icon">
-        <ArrowUp class="h-6 w-6" />
-      </Button>
-
-      <Button variant="icon" size="icon">
-        <ArrowDown class="h-6 w-6" />
-      </Button>
-    </div>
+    <PostVote id={post.post.id} vote={post.my_vote} />
   </div>
 </div>
