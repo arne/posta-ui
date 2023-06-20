@@ -1,8 +1,6 @@
 <script>
   import Post from '$lib/Post.svelte';
   import Card from '$lib/Card.svelte';
-  import { Button } from '$lib/button';
-  import { Plus, Minus } from 'lucide-svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   import Subscribe from '$lib/Subscribe.svelte';
