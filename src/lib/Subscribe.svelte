@@ -17,6 +17,9 @@
       if (result.type === 'success') {
         await update();
       }
+      if (result.type === 'redirect') {
+        console.log('You must be logged in to subscribe');
+      }
     };
   };
 </script>

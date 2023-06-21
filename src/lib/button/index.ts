@@ -16,6 +16,7 @@ export const buttonVariants = cva(
         subscribe: 'bg-chill-army-green text-white hover:bg-chill-army-green/80',
         copy: 'bg-chill-army-green/30 text-chill-army-green border-chill-army-green border hover:bg-chill-army-green/10',
         icon: 'bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600',
+        active: 'bg-posta-red text-white hover:bg-posta-red/40',
       },
       size: {
         default: 'h-10 py-2 px-4',

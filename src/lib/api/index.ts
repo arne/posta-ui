@@ -21,6 +21,8 @@ const api = {
   getCommentsById: async (post_id: number) => await client.getComments({ post_id, max_depth: 10 }),
   unsubscribeFromCommunity: async (community_id: number, auth: string, subscribe: boolean) =>
     await client.followCommunity({ community_id, follow: subscribe, auth }),
+  voteOnPostById: async (post_id: number, auth: string, score: number) =>
+    await client.likePost({ post_id, score, auth }),
 };
 
 export default api;
