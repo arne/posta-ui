@@ -11,7 +11,7 @@
   const voteAction: SubmitFunction = () => {
     return async ({ result, update }) => {
       if (result.type === 'success') {
-        await update();
+        setTimeout(() => update(), 50);
       }
     };
   };
