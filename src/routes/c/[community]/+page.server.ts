@@ -27,7 +27,7 @@ export const actions = {
     const community = data.get('communityId') as string;
     // const redirecturl = data.get('redirect') as string;
     const jwt = cookies.get('jwt') || '';
-
+    if (jwt === '') throw redirect(302, '/login');
     await api.unsubscribeFromCommunity(parseInt(community), jwt, subscribe);
   },
 } satisfies Actions;

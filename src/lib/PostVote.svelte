@@ -6,12 +6,17 @@
   import { enhance } from '$app/forms';
 
   export let id: number;
-  export let vote = 0;
+  export let vote: number | undefined;
 
-  const voteAction: SubmitFunction = () => {
-    return async ({ result, update }) => {
+  $: v = vote || 0;
+
+  const voteAction: SubmitFunction = ({ action }) => {
+    const choice = action.search.split('/')[1];
+    return async ({ result }) => {
       if (result.type === 'success') {
-        setTimeout(() => update(), 50);
+        v = choice == 'zero' ? 0 : choice == 'upvote' ? 1 : -1;
+      } else if (result.type === 'redirect') {
+        console.log('You must be logged in to vote');
       }
     };
   };
@@ -19,17 +24,17 @@
 
 <form class="flex gap-1" method="POST" use:enhance={voteAction}>
   <Button
-    variant={vote === 1 ? 'active' : 'icon'}
+    variant={v === 1 ? 'active' : 'icon'}
     size="icon"
-    formaction={vote !== 1 ? `/p/${id}?/upvote` : `/p/${id}?/zero`}
+    formaction={v !== 1 ? `/p/${id}?/upvote` : `/p/${id}?/zero`}
   >
     <ArrowUp class="h-6 w-6" />
   </Button>
 
   <Button
-    variant={vote === -1 ? 'active' : 'icon'}
+    variant={v === -1 ? 'active' : 'icon'}
     size="icon"
-    formaction={vote !== -1 ? `/p/${id}?/downvote` : `/p/${id}?/zero`}
+    formaction={v !== -1 ? `/p/${id}?/downvote` : `/p/${id}?/zero`}
   >
     <ArrowDown class="h-6 w-6" />
   </Button>

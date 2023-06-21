@@ -1,5 +1,5 @@
 import api from '$lib/api/index.js';
-import { Cookies } from '@sveltejs/kit';
+import { Cookies, redirect } from '@sveltejs/kit';
 
 export async function load({ params, cookies }) {
   const id = parseInt(params.id);
@@ -13,6 +13,7 @@ export async function load({ params, cookies }) {
 
 async function vote(value: number, cookies: Cookies, req: Request) {
   const jwt = cookies.get('jwt') || '';
+  if (jwt === '') throw redirect(302, '/login');
   const url = new URL(req.url);
   const id = parseInt(url.pathname.split('/').pop() || '0');
   api.voteOnPostById(id, jwt, value);
