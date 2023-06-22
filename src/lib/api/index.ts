@@ -28,6 +28,8 @@ const api = {
   register: async (form: Register) => await client.register(form),
   unsubscribeFromCommunity: async (community_id: number, auth: string, subscribe: boolean) =>
     await client.followCommunity({ community_id, follow: subscribe, auth }),
+  voteOnCommentById: async (comment_id: number, auth: string, score: number) =>
+    await client.likeComment({ comment_id, score, auth }),
   voteOnPostById: async (post_id: number, auth: string, score: number) =>
     await client.likePost({ post_id, score, auth }),
 };

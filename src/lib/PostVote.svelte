@@ -12,17 +12,18 @@
 
   const voteAction: SubmitFunction = ({ action }) => {
     const choice = action.search.split('/')[1];
+    v = choice == 'zero' ? 0 : choice == 'upvote' ? 1 : -1;
     return async ({ result }) => {
       if (result.type === 'success') {
-        v = choice == 'zero' ? 0 : choice == 'upvote' ? 1 : -1;
-      } else if (result.type === 'redirect') {
-        console.log('You must be logged in to vote');
+      } else {
+        v = 0;
       }
     };
   };
 </script>
 
 <form class="flex gap-1" method="POST" use:enhance={voteAction}>
+  <input type="hidden" name="id" value={id} />
   <Button
     variant={v === 1 ? 'active' : 'icon'}
     size="icon"

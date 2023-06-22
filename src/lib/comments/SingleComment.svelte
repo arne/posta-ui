@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { CommentView } from '../../client/types/CommentView';
+  import CommentVote from './CommentVote.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   import Reply from './Reply.svelte';
 
@@ -21,9 +22,7 @@
   <div class="prose dark:prose-invert"><SvelteMarkdown source={comment.comment.content} /></div>
   <ul class="flex items-center gap-2 mt-2">
     <li class="flex gap-1">
-      <img src="/up.svg" alt="Vote count" />
-      {comment.counts.score}
-      <img src="/down.svg" alt="Vote count" />
+      <CommentVote {comment} />
     </li>
     <li class="flex gap-1">
       <button class="flex gap-1 items-center" on:click={() => (showReply = !showReply)}>
