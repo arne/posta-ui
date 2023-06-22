@@ -12,9 +12,9 @@ const api = {
     await client.getPosts({ community_name, auth: jwt }),
   getPostsForFrontpage: async (jwt: string | undefined) => {
     if (jwt) {
-      return await client.getPosts({ auth: jwt, limit: 20, sort: 'Hot', type_: 'Subscribed' });
+      return await client.getPosts({ auth: jwt, limit: 40, sort: 'Active', type_: 'Subscribed' });
     }
-    return await client.getPosts({ limit: 20, sort: 'Hot' });
+    return await client.getPosts({ limit: 40, sort: 'Active' });
   },
   getCommunities: async (auth = '') => await client.listCommunities({ limit: 50, auth }),
   getPersonDetails: async (person_id: number) => await client.getPersonDetails({ person_id }),
