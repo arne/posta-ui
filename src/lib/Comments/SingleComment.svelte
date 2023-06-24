@@ -36,5 +36,5 @@
       </button>
     </li>
   </ul>
-  {#if replyVisible}<Reply />{/if}
+  {#if replyVisible}<Reply {comment} />{/if}
 </div>

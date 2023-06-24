@@ -31,7 +31,9 @@
     <section class="w-80">
       <Card title={post.community_view.community.title}>
         {#if post.community_view.community.description}
-          <div class=""><SvelteMarkdown source={post.community_view.community.description} /></div>
+          <div class="prose">
+            <SvelteMarkdown source={post.community_view.community.description} />
+          </div>
         {/if}
 
         <Subscribe

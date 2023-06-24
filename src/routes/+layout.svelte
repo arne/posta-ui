@@ -25,9 +25,6 @@
       <div class="flex items-center gap-3">
         {#if data.person}
           <Button href="/u">{data.person.name}</Button>
-          <form method="POST" action="/?/logout">
-            <Button type="submit" variant="outline">Logout</Button>
-          </form>
         {:else}
           <Button href="/login" variant="outline">Login</Button>
           <Button href="/register">Register</Button>
