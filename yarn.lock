@@ -760,6 +760,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+eld@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/eld/-/eld-0.9.4.tgz#b12aa0cb792d897ea03faefc309f92aee516674c"
+  integrity sha512-qmMv3pDpC+oGLjlw+he9+QCAex8ahBcO0I+I67EcuNmxAT8F4nykRguOcWCu30KxTXoOKZCNxnOMOwOrKulMzg==
+
 electron-to-chromium@^1.4.431:
   version "1.4.437"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.437.tgz#d0e73a431a9ade4467f73d48a59d752d91909316"

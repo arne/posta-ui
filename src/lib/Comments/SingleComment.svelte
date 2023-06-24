@@ -1,12 +1,14 @@
 <script lang="ts">
   import type { CommentView } from '../../client/types/CommentView';
   import SvelteMarkdown from 'svelte-markdown';
+  import Reply from './Reply.svelte';
 
   import dayjs from 'dayjs';
   import relativeTime from 'dayjs/plugin/relativeTime.js';
   dayjs.extend(relativeTime);
 
   export let comment: CommentView;
+  $: replyVisible = false;
 </script>
 
 <div class="mb-4">
@@ -23,6 +25,16 @@
       {comment.counts.score}
       <img src="/down.svg" alt="Vote count" />
     </li>
-    <li class="flex gap-1"><img src="/comment.svg" alt="Comment" /> Reply</li>
+    <li class="flex gap-1">
+      <button
+        on:click={() => {
+          replyVisible = !replyVisible;
+        }}
+        class="flex gap-1 items-center"
+      >
+        <img src="/comment.svg" alt="Comment" /> Reply
+      </button>
+    </li>
   </ul>
+  {#if replyVisible}<Reply />{/if}
 </div>
