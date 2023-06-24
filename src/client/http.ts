@@ -1,3 +1,5 @@
+import fetch from 'cross-fetch';
+import FormData from 'form-data';
 import { AddAdmin } from './types/AddAdmin';
 import { AddAdminResponse } from './types/AddAdminResponse';
 import { AddModToCommunity } from './types/AddModToCommunity';
@@ -146,18 +148,28 @@ export class LemmyHttp {
   #apiUrl: string;
   #headers: { [key: string]: string } = {};
   #pictrsUrl: string;
+  #fetchFunction = fetch;
 
   /**
    * Generates a new instance of LemmyHttp.
    * @param baseUrl the base url, without the vX version: https://lemmy.ml -> goes to https://lemmy.ml/api/vX
    * @param headers optional headers. Should contain `x-real-ip` and `x-forwarded-for` .
    */
-  constructor(baseUrl: string, headers?: { [key: string]: string }) {
+  constructor(
+    baseUrl: string,
+    options?: {
+      fetchFunction: typeof fetch;
+      headers?: { [key: string]: string };
+    }
+  ) {
     this.#apiUrl = `${baseUrl.replace(/\/+$/, '')}/api/${VERSION}`;
     this.#pictrsUrl = `${baseUrl}/pictrs/image`;
 
-    if (headers) {
-      this.#headers = headers;
+    if (options?.headers) {
+      this.#headers = options.headers;
+    }
+    if (options?.fetchFunction) {
+      this.#fetchFunction = options.fetchFunction;
     }
   }
 
@@ -1127,7 +1139,7 @@ export class LemmyHttp {
     let url: string | undefined = undefined;
     let delete_url: string | undefined = undefined;
 
-    const response = await fetch(this.#pictrsUrl, {
+    const response = await this.#fetchFunction(this.#pictrsUrl, {
       method: HttpType.Post,
       body: formData as unknown as BodyInit,
       headers: {
