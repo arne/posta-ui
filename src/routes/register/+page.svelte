@@ -4,22 +4,18 @@
   import { enhance } from '$app/forms';
   import { superForm } from 'sveltekit-superforms/client';
   import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
+  import { page } from '$app/stores';
 
   export let data;
-  const { form, errors, constraints } = superForm(data.form);
+  const { form, errors, constraints, message } = superForm(data.form);
 </script>
 
 <svelte:head>
   <title>Posta.no: Register</title>
 </svelte:head>
 
-<!-- <SuperDebug data={$form} /> -->
-
 <div class="max-w-sm mb-12 border rounded-md">
   <div class="p-2 flex flex-col gap-3">
-    {#if data.e}
-      <h2>An unexpected error occured: {data.e}</h2>
-    {/if}
     <form method="POST" use:enhance>
       <Label class="space-y-2">
         <span>Username</span>
@@ -88,6 +84,11 @@
       <div class="p-2 border-t">
         <Button>Register</Button>
       </div>
+      {#if $message}
+        <div class:text-green-500={$page.status == 200} class:text-red-500={$page.status >= 400}>
+          {$message}
+        </div>
+      {/if}
     </form>
   </div>
 </div>

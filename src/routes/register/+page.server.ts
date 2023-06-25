@@ -1,7 +1,7 @@
 import api from '$lib/api';
 import { fail, redirect } from '@sveltejs/kit';
 import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
+import { superValidate, message } from 'sveltekit-superforms/server';
 
 // Name has a default value just to display something in the form.
 const schema = z.object({
@@ -37,9 +37,15 @@ export const actions = {
         password_verify: form.data.password_verify,
         answer: form.data.answer,
       });
+      if (res.registration_created === true) {
+        return message(form, 'Registration created');
+      }
+      if (res.verify_email_sent === true) {
+        return message(form, 'Verification email sent');
+      }
     } catch (e) {
       console.log('e ', e);
-      fail(400, { form, e });
+      return message(form, 'Registration failed: ' + e, { status: 403 });
     }
     if (res?.jwt !== undefined) {
       cookies.set('jwt', res.jwt);
