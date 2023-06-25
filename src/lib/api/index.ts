@@ -7,8 +7,7 @@ const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL || 'https://posta.no');
 
 const api = {
   addComment: async (obj: CreateComment) => {
-    console.log(obj)
-    return await client.createComment(obj).catch(err => console.log(err))
+    return await client.createComment(obj)
   },
   login: async (user: string, password: string) =>
     await client.login({ username_or_email: user, password: password }),

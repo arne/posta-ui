@@ -33,12 +33,11 @@ export const actions = {
   comment: async ({ cookies, request }) => {
     const auth = cookies.get('jwt') || ''
     const data = await request.formData()
-    const post_id = data.get('post_id') as number | null
-    const parent_id = data.get('parent_id') as number | null
-    const content = data.get('content') as string
-    if (!post_id) return
-    const response: CreateComment = { auth, post_id, content }
-    response.parent_id = parent_id || 0
-    return await api.addComment(response)
+
+    const res = Object.fromEntries(data)
+    res.auth = auth
+    res.post_id = parseInt(res.post_id)
+    if (res.parent_id) { res.parent_id = parseInt(res.parent_id) }
+    return await api.addComment(res)
   }
 };
