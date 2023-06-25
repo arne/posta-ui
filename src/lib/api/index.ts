@@ -1,9 +1,15 @@
+import type { CreateComment } from '../../client/types/CreateComment';
+
 import { PUBLIC_API_URL } from '$env/static/public';
 import { LemmyHttp } from '../../client/http';
 
 const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL || 'https://posta.no');
 
 const api = {
+  addComment: async (obj: CreateComment) => {
+    console.log(obj)
+    return await client.createComment(obj).catch(err => console.log(err))
+  },
   login: async (user: string, password: string) =>
     await client.login({ username_or_email: user, password: password }),
   getSite: async (jwt: string) => await client.getSite({ auth: jwt }),

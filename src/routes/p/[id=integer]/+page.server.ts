@@ -1,4 +1,5 @@
 import api from '$lib/api/index.js';
+import { CreateComment } from '../../../client/index.js';
 import { Cookies, redirect } from '@sveltejs/kit';
 
 export async function load({ params, cookies }) {
@@ -29,4 +30,15 @@ export const actions = {
   downvote: async ({ cookies, request }) => {
     await vote(-1, cookies, request);
   },
+  comment: async ({ cookies, request }) => {
+    const auth = cookies.get('jwt') || ''
+    const data = await request.formData()
+    const post_id = data.get('post_id') as number | null
+    const parent_id = data.get('parent_id') as number | null
+    const content = data.get('content') as string
+    if (!post_id) return
+    const response: CreateComment = { auth, post_id, content }
+    response.parent_id = parent_id || 0
+    return await api.addComment(response)
+  }
 };

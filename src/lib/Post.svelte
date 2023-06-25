@@ -29,7 +29,7 @@
             <SvelteMarkdown
               source={post.post.body.split('\n\n')[0]}
             />{#if post.post.body.split('\n\n').length > 1}<p>
-                <a href={`/p/${post.post.id}`}>Read more</a>
+                <a href={`/p/${post.post.id}`} class="opacity-50">Read more…</a>
               </p>{/if}
           </div>
         {:else}
@@ -39,10 +39,7 @@
     </div>
   </ConditionalWrapper>
   {#if post.post.url}
-    <a
-      href={post.post.url}
-      class="p-2 border-t bg-gray-50 dark:bg-transparent border-t pt-3 text-sm block"
-    >
+    <a href={post.post.url} class="p-2 border-t bg-gray-50 dark:bg-transparent pt-3 text-sm block">
       Source: <span class="border-posta-red border-b"
         >{post.post.url.length > 60 ? post.post.url.substring(0, 60) + '…' : post.post.url}</span
       >

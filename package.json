@@ -42,6 +42,7 @@
     "dayjs": "^1.11.8",
     "lemmy-js-client": "^0.18.0-rc.2",
     "lucide-svelte": "^0.248.0",
+    "svelte-autosize": "^1.1.0",
     "svelte-markdown": "^0.2.3",
     "tailwind-merge": "^1.13.2"
   }
