@@ -1,9 +1,11 @@
 import { PUBLIC_API_URL } from '$env/static/public';
 import { LemmyHttp } from '../../client/http';
+import { Register } from '../../client/types/Register';
 
 const client: LemmyHttp = new LemmyHttp(PUBLIC_API_URL || 'https://posta.no');
 
 const api = {
+  register: async (form: Register) => await client.register(form),
   login: async (user: string, password: string) =>
     await client.login({ username_or_email: user, password: password }),
   getSite: async (jwt: string) => await client.getSite({ auth: jwt }),
