@@ -1,6 +1,6 @@
 <script>
   import Post from '$lib/Post.svelte';
-  import SingleComment from '$lib/Comments/SingleComment.svelte';
+  import SingleComment from '$lib/comments/SingleComment.svelte';
   import { Tabs, TabItem } from '$lib/tabs';
   import Badge from '$lib/Badge.svelte';
 

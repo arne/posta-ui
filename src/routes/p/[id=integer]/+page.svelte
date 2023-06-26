@@ -1,8 +1,8 @@
 <script>
   import Post from '$lib/Post.svelte';
-  import Reply from '$lib/Comments/Reply.svelte';
+  import Reply from '$lib/comments/Reply.svelte';
   import Card from '$lib/Card.svelte';
-  import CommentsView from '$lib/Comments/index.svelte';
+  import CommentsView from '$lib/comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
   import Subscribe from '$lib/Subscribe.svelte';
   export let data;
