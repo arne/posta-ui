@@ -33,7 +33,8 @@
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
     "typescript-svelte-plugin": "^0.3.27",
-    "vite": "^4.3.0"
+    "vite": "^4.3.0",
+    "zod": "^3.21.4"
   },
   "type": "module",
   "dependencies": {
@@ -44,6 +45,7 @@
     "lucide-svelte": "^0.248.0",
     "svelte-autosize": "^1.1.0",
     "svelte-markdown": "^0.2.3",
+    "sveltekit-superforms": "^1.1.2",
     "tailwind-merge": "^1.13.2"
   }
 }
