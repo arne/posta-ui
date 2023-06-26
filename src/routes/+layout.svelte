@@ -3,6 +3,7 @@
 
   import { Button } from '$lib/button';
   import DarkMode from '$lib/DarkMode.svelte';
+  import { Plus } from 'lucide-svelte';
 
   export let data;
 </script>
@@ -23,11 +24,22 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
+        <Button href="#" variant="outline" title="Create post"><Plus class="w-5 h-5" /></Button>
         {#if data.person}
-          <Button href="/u">{data.person.name}</Button>
-          <form method="POST" action="/?/logout">
-            <Button type="submit" variant="outline">Logout</Button>
-          </form>
+          <Button href="/u" variant="outline" title="Go to user profile">
+            <div class="w-7 h-7 bg-white rounded-full mr-3">
+              {#if data.person.avatar}
+                <img
+                  src={`${data.person.avatar}?format=webp&thumbnail=200`}
+                  class="w-7 h-7 rounded-full text-left p-0.5"
+                  alt={data.person.name}
+                />
+              {:else}
+                <div class="bg-blight-blue w-full h-full rounded-full" />
+              {/if}
+            </div>
+            {data.person.name}
+          </Button>
         {:else}
           <Button href="/login" variant="outline">Login</Button>
           <Button href="/register">Register</Button>

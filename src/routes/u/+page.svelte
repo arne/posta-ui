@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Button } from '$lib/button';
+
   export let data;
   const [person, counts] = [data.user?.person, data.user?.counts];
 </script>
@@ -12,3 +14,7 @@
   <li>Posts: {counts?.post_count}</li>
   <li>Comments: {counts?.comment_count}</li>
 </ul>
+
+<form method="POST" action="/?/logout">
+  <Button type="submit" variant="outline">Logout</Button>
+</form>
