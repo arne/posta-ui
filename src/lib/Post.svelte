@@ -29,7 +29,7 @@
             <SvelteMarkdown
               source={post.post.body.split('\n\n')[0]}
             />{#if post.post.body.split('\n\n').length > 1}<p>
-                <a href={`/p/${post.post.id}`}>Read more</a>
+                <a href={`/p/${post.post.id}`} class="opacity-50">Read more…</a>
               </p>{/if}
           </div>
         {:else}

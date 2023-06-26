@@ -1,4 +1,5 @@
 import api from '$lib/api/index.js';
+import { CreateComment } from '../../../client/index.js';
 import { Cookies, redirect } from '@sveltejs/kit';
 
 export async function load({ params, cookies }) {
@@ -29,4 +30,15 @@ export const actions = {
   downvote: async ({ cookies, request }) => {
     await vote(-1, cookies, request);
   },
+  comment: async ({ cookies, request }) => {
+    const auth = cookies.get('jwt') || ''
+    const data = await request.formData()
+
+    const res = Object.fromEntries(data)
+    res.auth = auth
+    res.post_id = parseInt(res.post_id)
+    if (res.parent_id) { res.parent_id = parseInt(res.parent_id) }
+    if (auth === '') throw new Error("Not authenticated")
+    return await api.addComment(res)
+  }
 };

@@ -1,5 +1,6 @@
 <script>
   import Post from '$lib/Post.svelte';
+  import Reply from '$lib/Comments/Reply.svelte';
   import Card from '$lib/Card.svelte';
   import CommentsView from '$lib/Comments/index.svelte';
   import SvelteMarkdown from 'svelte-markdown';
@@ -19,11 +20,13 @@
     {#if comments.comments.length > 0}
       <div class="p-2">
         <h2 class="text-m font-medium mb-2">Comments({comments.comments.length}):</h2>
+        <div class="mb-2"><Reply postId={post.post_view.post.id} /></div>
         <CommentsView comments={comments.comments} />
       </div>
     {:else}
       <div class="p-2">
         <h2 class="text-m font-medium mb-2">No comment.</h2>
+        <Reply postId={post.post_view.post.id} />
       </div>
     {/if}
   </div>
