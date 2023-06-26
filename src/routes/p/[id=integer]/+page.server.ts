@@ -1,5 +1,5 @@
-import { CreateComment } from '../../../client/index.js';
 import api from '$lib/api/index.js';
+import { CreateComment } from '../../../client/index.js';
 import { Cookies, redirect } from '@sveltejs/kit';
 
 export async function load({ params, cookies }) {
@@ -37,12 +37,13 @@ export const actions = {
 
     const res = Object.fromEntries(data);
     res.auth = auth;
-    res.post_id = parseInt(res.post_id);
-    if (res.parent_id) {
-      res.parent_id = parseInt(res.parent_id);
-    }
     if (auth === '') throw new Error('Not authenticated');
-    return await api.addComment(res);
+    return await api.addComment({
+      content: res.content.toString(),
+      post_id: parseInt(res.post_id.toString()),
+      parent_id: res.parent_id === undefined ? undefined : parseInt(res.parent_id.toString()),
+      auth,
+    });
   },
   ucomment: async ({ cookies, request }) => {
     await vote(1, cookies, request, 'comment');
