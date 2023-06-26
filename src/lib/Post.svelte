@@ -39,10 +39,7 @@
     </div>
   </ConditionalWrapper>
   {#if post.post.url}
-    <a
-      href={post.post.url}
-      class="p-2 border-t bg-gray-50 dark:bg-transparent border-t pt-3 text-sm block"
-    >
+    <a href={post.post.url} class="p-2 border-t bg-gray-50 dark:bg-transparent pt-3 text-sm block">
       Source: <span class="border-posta-red border-b"
         >{post.post.url.length > 60 ? post.post.url.substring(0, 60) + '…' : post.post.url}</span
       >
@@ -67,7 +64,11 @@
           <img src="/up.svg" alt="Vote count" />
           {post.counts.score}
         </li>
-        <li class="flex gap-1"><img src="/comment.svg" alt="Downvote" /> {post.counts.comments}</li>
+        <li class="flex gap-1">
+          <a class="flex" href={`/p/${post.post.id}`}>
+            <img src="/comment.svg" alt="Comments" />{post.counts.comments}
+          </a>
+        </li>
         <li class="flex gap-1">
           <img src="/time.svg" alt={post.counts.published} />
           {dayjs().to(dayjs(post.counts.published))}
