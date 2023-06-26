@@ -38,6 +38,7 @@ export const actions = {
     res.auth = auth
     res.post_id = parseInt(res.post_id)
     if (res.parent_id) { res.parent_id = parseInt(res.parent_id) }
+    if (auth === '') throw new Error("Not authenticated")
     return await api.addComment(res)
   }
 };
