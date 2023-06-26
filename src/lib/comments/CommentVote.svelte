@@ -23,7 +23,6 @@
 </script>
 
 <form method="POST" use:enhance={voteAction}>
-  {myVote}
   <input type="hidden" name="id" value={comment.comment.id} />
   <button
     class={myVote === 1 ? 'text-posta-red' : 'text-xs'}
