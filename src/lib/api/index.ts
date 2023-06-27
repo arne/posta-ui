@@ -1,4 +1,5 @@
 import type { CreateComment } from '../../client/types/CreateComment';
+import type { Search } from '../../client';
 
 import { PUBLIC_API_URL } from '$env/static/public';
 import { LemmyHttp } from '../../client/http';
@@ -12,7 +13,7 @@ const api = {
   },
   getCommentsById: async (post_id: number) => await client.getComments({ post_id, max_depth: 10 }),
   getCommunities: async (auth = '') => await client.listCommunities({ limit: 50, auth }),
-  getPersonDetails: async (person_id: number) => await client.getPersonDetails({ person_id }), 
+  getPersonDetails: async (person_id: number) => await client.getPersonDetails({ person_id }),
   getPostById: async (id: number, auth: string) => await client.getPost({ id, auth }),
   getPostsByCommunityName: async (community_name: string, jwt = '') =>
     await client.getPosts({ community_name, auth: jwt }),
@@ -26,6 +27,7 @@ const api = {
   login: async (user: string, password: string) =>
     await client.login({ username_or_email: user, password: password }),
   register: async (form: Register) => await client.register(form),
+  search: async (form: Search) => await client.search(form),
   unsubscribeFromCommunity: async (community_id: number, auth: string, subscribe: boolean) =>
     await client.followCommunity({ community_id, follow: subscribe, auth }),
   voteOnPostById: async (post_id: number, auth: string, score: number) =>
