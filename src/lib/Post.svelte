@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PostView } from '../client/types/PostView';
   import dayjs from 'dayjs';
-
   import relativeTime from 'dayjs/plugin/relativeTime.js';
   import getLocalUrl from '$lib/helpers/getLocalUrl';
+  import { Link } from 'lucide-svelte';
 
   import ConditionalWrapper from '$lib/helpers/ConditionalWrapper.svelte';
   import PostVote from './PostVote.svelte';
@@ -39,10 +39,12 @@
     </div>
   </ConditionalWrapper>
   {#if post.post.url}
-    <a href={post.post.url} class="p-2 border-t bg-gray-50 dark:bg-transparent pt-3 text-sm block">
-      Source: <span class="border-posta-red border-b"
-        >{post.post.url.length > 60 ? post.post.url.substring(0, 60) + '…' : post.post.url}</span
-      >
+    <a
+      href={post.post.url}
+      class="flex items-center gap-2 p-2 border-t bg-gray-50 dark:bg-transparent pt-3 text-sm"
+    >
+      <Link class="h-4 w-4" />
+      <span class="border-posta-red border-b truncate">{post.post.url}</span>
     </a>
   {/if}
   <div class="p-2 flex items-center justify-between border-t pt-3 text-sm">
@@ -66,7 +68,8 @@
         </li>
         <li class="flex gap-1">
           <a class="flex" href={`/p/${post.post.id}`}>
-            <img src="/comment.svg" alt="Comments" />{post.counts.comments}
+            <img src="/comment.svg" alt="Comments" />
+            {post.counts.comments}
           </a>
         </li>
         <li class="flex gap-1">
