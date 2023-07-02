@@ -16,10 +16,7 @@
           <span class="text-xl font-bold">Posta</span>
         </a>
         <div class="hidden lg:flex lg:gap-3">
-          <a
-            class="relative -mx-3 -my-2 rounded-lg px-3 pt-3 py-2 text-m transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
-            href="/c"><span class="relative z-10">Communities</span></a
-          >
+          <Button href="/c" variant="outline">Communities</Button>
         </div>
       </div>
       <div class="flex items-center gap-3">
