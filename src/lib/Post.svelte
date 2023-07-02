@@ -14,6 +14,7 @@
   export let post: PostView;
   export let link = false;
   export let outsideCommunity = false;
+  let imgRegex = /\.(png|jpg|jpeg|gif|webp)$/i;
 </script>
 
 <div class="mb-3 border rounded-md overflow-hidden">
@@ -22,6 +23,8 @@
       <h1 class="font-semibold text-lg">{post.post.name}</h1>
       {#if post.post.thumbnail_url}
         <img src={post.post.thumbnail_url} alt="Thumbnail" style="width: 100%" />
+      {:else if post.post.url?.match(imgRegex)}
+        <img src={post.post.url} alt="Thumbnail" style="width: 100%" />
       {/if}
       {#if post.post.body}
         {#if link}
